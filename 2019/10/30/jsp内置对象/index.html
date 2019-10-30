@@ -1,0 +1,1307 @@
+<!--
+	作者：Sariay
+	时间：2018-09-25
+	描述：There may be a bug, but don't worry, QiLing(器灵) says that it can work normally!
+-->
+<!DOCTYPE html>
+<html class="html-loading">
+		
+
+<head><meta name="generator" content="Hexo 3.9.0">
+	<meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+  <title>
+    
+      jsp内置对象 | Hexo
+    
+  </title>
+  <meta name="author" content="John Doe">
+  <meta name="keywords" content>
+  <meta name="description" content>
+	<!-- favicon -->
+  <link rel="shortcut icon" href="/img/favicon.ico">
+
+  <!-- css -->
+  <link rel="stylesheet" href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="/css/Annie.css">
+  
+  <!-- jquery -->
+	<script src="/js/jquery.min.js"></script>
+
+  <!-- leancloud -->
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+<script src="/js/leancloud.js"></script>
+</head>
+	<body>
+		<!-- Preloader -->
+
+	<div id="preloader">
+		<div class="pre-container">
+			
+				<div class="spinner">
+					<div class="double-bounce1"></div>
+					<div class="double-bounce2"></div>
+				</div>
+						
+		</div>
+	</div>
+
+
+<!-- header -->
+<header class="fixbackground" data-img-mode="normal" data-normal-src="/img/1.jpg" data-random-max="110" data-random-src="https://sariay.github.io/Random-img/">
+	<div class="mask">
+		<!-- Logo and navigation -->
+		<div class="h-header">
+			<div id="logo">
+				<a href="/">
+						
+						<img src="/img/logo.png" alt="Logo">
+					
+				</a>
+			</div>
+			
+			<div id="navigation-show">
+				<ul>
+	
+		<li class="menu-home">
+			<a href="/" class="menu-item-home">Home</a>
+		</li>
+	
+		<li class="menu-archive">
+			<a href="/archives" class="menu-item-archive">Archive</a>
+		</li>
+	
+		<li class="menu-categories">
+			<a href="/categories" class="menu-item-categories">Category</a>
+		</li>
+	
+		<li class="menu-tags">
+			<a href="/tags" class="menu-item-tags">Tag</a>
+		</li>
+	
+		<li class="menu-about">
+			<a href="/about" class="menu-item-about">About</a>
+		</li>
+	
+		<li class="menu-gallery">
+			<a href="/gallery" class="menu-item-gallery">Gallery</a>
+		</li>
+	
+
+	
+</ul>
+			</div>				
+		</div>
+
+		<!-- motto -->
+		<div class="h-body">	
+			
+				<p class="motto"></p>
+			
+		</div>
+		
+		<!-- others: such as time... -->			
+		<div class="h-footer">
+			<a href="javascript:;" id="read-more"><i class="fa fa-angle-double-down" aria-hidden="true"></i>
+			</a>
+
+			
+				<!-- 
+	This is only a demo, please go to "https://time.is" to set your city time! 
+-->
+<style type="text/css">
+	.header-date {
+		font-size: 1.6rem;
+		color: #fff;
+		position: absolute;
+		bottom: 5px;
+		right: 1rem;
+		writing-mode: tb-rl;
+	}	
+	
+	.header-date a {
+		border-bottom: none;
+	}
+
+	@media only screen and (max-width: 768 ) {
+		.header-date {
+			font-size: 1rem;
+		}			
+	}
+</style>
+<div class="header-date">
+	<a href="https://time.is/Beijing" id="time_is_link" rel="nofollow" ></a>
+	<span id="Beijing_z43d"></span>
+</div>
+<script src="//widget.time.is/zh.js"></script>
+<script>
+	time_is_widget.init({
+		Beijing_z43d:{
+			template:"DATE", 
+			date_format:"year年 monthname dnum日"
+		}
+	});
+</script>
+			
+		</div>
+	</div>
+</header>
+
+<div id="navigation-hide">
+	<!-- Progress bar -->
+	<div id="progress-bar"></div>
+
+	<!-- Progress percent -->
+	<div id="progress-percentage"><h1>0.0%</h1></div>
+
+	<div class="toc-switch"><span class="switch-button">Catalog</span></div>
+
+	<!-- Page title -->
+	<p>
+		
+			Current post&nbsp;:&nbsp;《jsp内置对象》
+		
+	</p>
+
+	<!-- Nav trigger for navigation-H-->
+	<a class="nav-trigger"><span></span></a>
+</div>
+
+<!-- Navigation in div(id="navigation-H") -->
+<nav class="nav-container" id="cd-nav">
+	<div class="nav-header">
+		<h3>Navigation</h3>
+		<a href="javascript:;" class="nav-close"></a>
+	</div>
+	<div class="nav-body">
+		<ul>
+	
+		<li class="menu-home">
+			<a href="/" class="menu-item-home">Home</a>
+		</li>
+	
+		<li class="menu-archive">
+			<a href="/archives" class="menu-item-archive">Archive</a>
+		</li>
+	
+		<li class="menu-categories">
+			<a href="/categories" class="menu-item-categories">Category</a>
+		</li>
+	
+		<li class="menu-tags">
+			<a href="/tags" class="menu-item-tags">Tag</a>
+		</li>
+	
+		<li class="menu-about">
+			<a href="/about" class="menu-item-about">About</a>
+		</li>
+	
+		<li class="menu-gallery">
+			<a href="/gallery" class="menu-item-gallery">Gallery</a>
+		</li>
+	
+
+	
+</ul>
+	</div>
+	<div class="nav-footer">
+		<ul>
+	
+		<li>
+			<a href="http://github.com/" target="_blank">
+				<i class="fa fa-github"></i>
+			</a>
+		</li>
+	
+		<li>
+			<a href="http://github.com/" target="_blank">
+				<i class="fa fa-weibo"></i>
+			</a>
+		</li>
+	
+		<li>
+			<a href="http://github.com/" target="_blank">
+				<i class="fa fa-pinterest"></i>
+			</a>
+		</li>
+	
+		<li>
+			<a href="http://github.com/" target="_blank">
+				<i class="fa fa-instagram"></i>
+			</a>
+		</li>
+	
+		<li>
+			<a href="http://github.com/" target="_blank">
+				<i class="fa fa-twitter"></i>
+			</a>
+		</li>
+	
+		<li>
+			<a href="/atom.xml" target="_blank">
+				<i class="fa fa-rss"></i>
+			</a>
+		</li>
+			
+</ul>
+
+	</div>
+</nav>
+			
+		<!--main-->
+		<main>
+			<!--
+	时间：2018-11-17
+	描述：
+		插件名称：katelog.min.js
+		插件作者：KELEN
+		插件来源: https://github.com/KELEN/katelog
+-->
+
+	
+		<div class="layout-toc">
+			<div id="layout-toc">
+				<div class="k-catelog-list" id="catelog-list" data-title="文章目录"></div>
+			</div>
+		</div>
+
+		
+		<script src="/plugin/toc/katelog.min.js"></script>
+
+		
+	 
+
+<div class="layout-post">
+	<div id="layout-post">
+	<div class="article-title">
+		<i class="fa fa-paper-plane-o" aria-hidden="true"></i>
+		
+	<a href="/2019/10/30/jsp内置对象/" itemprop="url">
+		jsp内置对象
+	</a>
+
+	</div>
+
+	<div class="article-meta">
+		<span>
+			<i class="fa fa-calendar"></i>
+			
+
+
+	Posted on
+
+	<a href="/2019/10/30/jsp内置对象/" itemprop="url">
+		<time datetime="2019-10-30T02:28:15.000Z" itemprop="datePublished">
+	  		2019-10-30
+	  </time>
+	</a>
+	&nbsp;
+
+
+
+
+
+			
+
+
+
+
+	Updated on
+
+	<a href="/2019/10/30/jsp内置对象/" itemprop="url">
+		<time datetime="2019-10-30T02:28:15.000Z" itemprop="dateUpdated">
+	  		2019-10-30
+	  </time>
+	</a> 
+
+
+
+		</span>
+		<span>
+			<i class="fa fa-tags"></i>
+					
+		</span>
+		
+		
+
+
+
+	</div>
+
+	<div class="article-content" id="article-content">
+		<h1 id="JSP九大内置对象详解"><a href="#JSP九大内置对象详解" class="headerlink" title="JSP九大内置对象详解"></a>JSP九大内置对象详解</h1><p>JSP内置对象(9个内置对象):<br>1.PageContext javax.servlet.jsp.PageContext JSP的页面容器<br>2.request    javax.servlet.http.HttpServletrequest 获取用户的请求信息<br>3.response javax.servlet.http.HttpServletResponse 服务器向客户端的回应信息<br>4.session javax.servlet.http.HttpSession 用来保存每一个用户的信息<br>5.application javax.servlet.ServletContext 表示所有用户的共享信息<br>6.config javax.servlet.ServletConfig 服务器配置信息，可以取得初始化参数<br>7.out javax.servlet.jsp.jspWriter 页面输出<br>8.page java.lang.object)<br>9.exception java.lang.Throwable<br>四种属性范围:<br>page(pageContext):只在一个页面中保存属性。 跳转之后无效。<br>request:只在一次请求中有效，服务器跳转之后有效。 客户端跳无效<br>session:再一次会话中有效。服务器跳转、客户端跳转都有效。 网页关闭重新打开无效<br>application:在整个服务器上保存，所有用户都可使用。 重启服务器后无效<br>注意：如果设置过多的application属性范围会影响服务器性能。<br>pageContext.PAGE_SCOPE<br>pageContext.REQUEST_SCOPE<br>pageContext.SESSION_SCOPE<br>pageContext.APPLICATION_SCOPE<br>pageContext.setAttribute(“name”, “liuyang”, pageContext.APPLICATION_SCOPE);</p>
+<ul>
+<li>Request常用的方法：<br>1.01 getParameter(String strTextName) 获取表单提交的信息。</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">`String strName＝request.getParameter(&quot;name&quot;);`</span><br></pre></td></tr></table></figure>
+
+<p>​    1.02 getProtocol() 获取客户使用的协议。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">`String strProtocol=request.getProtocol();`</span><br></pre></td></tr></table></figure>
+
+<p>​    1.03 getServletPath() 获取客户提交信息的页面。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">`String strServlet=request.getServletPath();`</span><br></pre></td></tr></table></figure>
+
+<p>​    1.04 getMethod() 获取客户提交信息的方式，get|post。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">`String strMethod = request.getMethod();`</span><br></pre></td></tr></table></figure>
+
+<p>​    1.05 getHeade() 获取HTTP头文件中的accept、accept-encoding和Host的值。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">`String strHeader = request.getHeader(&quot;accept&quot;);`</span><br></pre></td></tr></table></figure>
+
+<p>​    1.06 getRermoteAddr() 获取客户的IP地址。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">`String strIP = request.getRemoteAddr();`</span><br></pre></td></tr></table></figure>
+
+<p>​    1.07 getRemoteHost() 获取客户机的名称。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">`String clientName = request.getRemoteHost();`</span><br></pre></td></tr></table></figure>
+
+<p>​    1.08 getServerName() 获取服务器名称。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">`String serverName = request.getServerName();`</span><br></pre></td></tr></table></figure>
+
+<p>​    1.09 getServerPort() 获取服务器的端口号。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">`int serverPort = request.getServerPort();`</span><br></pre></td></tr></table></figure>
+
+<p>​    1.10 getParameterNames() 获取客户端提交的所有参数的名字。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">`Enumeration enum = request.getParameterNames();while(enum.hasMoreElements())&#123;    String s=(String)enum.nextElement();    out.println(s);&#125;`</span><br></pre></td></tr></table></figure>
+
+<p>  1.11 getHeaderNames()     取出全部头信息。</p>
+<p><a href="javascript:void(0);" target="_blank" rel="noopener"><img src="https://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">　　&lt;%</span><br><span class="line">　　Enumeration enu = request.getHeaderNames();//取出全部头信息</span><br><span class="line">　　while(enu.hasMoreElements())&#123;</span><br><span class="line">　　String name = (String)enu.nextElement();</span><br><span class="line">　　String value = request.getHeader(name);</span><br><span class="line">　　%&gt;</span><br><span class="line">　　&lt;h1&gt;&lt;%=name %&gt;--&lt;%=value %&gt;&lt;/h1&gt;</span><br><span class="line">　　&lt;%    </span><br><span class="line">　　&#125;</span><br><span class="line">　　%&gt;</span><br></pre></td></tr></table></figure>
+
+<p><a href="javascript:void(0);" target="_blank" rel="noopener"><img src="https://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></p>
+<p>1、request对象</p>
+<p>request 对象是 javax.servlet.httpServletRequest类型的对象。 该对象代表了客户端的请求信息，主要用于接受通过HTTP协议传送到服务器的数据。（包括头信息、系统信息、请求方式以及请求参数等）。request对象的作用域为一次请求。</p>
+<h3 id="2、response对象"><a href="#2、response对象" class="headerlink" title="2、response对象"></a><em>2、response对象</em></h3><p>response 代表的是对客户端的响应，主要是将JSP容器处理过的对象传回到客户端。response对象也具有作用域，它只在JSP页面内有效。</p>
+<h3 id="3、session对象"><a href="#3、session对象" class="headerlink" title="3、session对象"></a>3、session对象</h3><p>session 对象是由服务器自动创建的与用户请求相关的对象。服务器为每个用户都生成一个session对象，用于保存该用户的信息，跟踪用户的操作状态。session对象内部使用Map类来保存数据，因此保存数据的格式为 “Key/value”。 session对象的value可以使复杂的对象类型，而不仅仅局限于字符串类型。</p>
+<h3 id="4、application对象"><a href="#4、application对象" class="headerlink" title="4、application对象"></a>4、application对象</h3><p> application 对象可将信息保存在服务器中，直到服务器关闭，否则application对象中保存的信息会在整个应用中都有效。与session对象相比，application对象生命周期更长，类似于系统的“全局变量”。</p>
+<h3 id="5、out-对象"><a href="#5、out-对象" class="headerlink" title="5、out 对象"></a>5、out 对象</h3><p>out 对象用于在Web浏览器内输出信息，并且管理应用服务器上的输出缓冲区。在使用 out 对象输出数据时，可以对数据缓冲区进行操作，及时清除缓冲区中的残余数据，为其他的输出让出缓冲空间。待数据输出完毕后，要及时关闭输出流。</p>
+<h3 id="6、pageContext-对象"><a href="#6、pageContext-对象" class="headerlink" title="6、pageContext 对象"></a>6、pageContext 对象</h3><p>pageContext 对象的作用是取得任何范围的参数，通过它可以获取 JSP页面的out、request、reponse、session、application 等对象。pageContext对象的创建和初始化都是由容器来完成的，在JSP页面中可以直接使用 pageContext对象。</p>
+<h3 id="7、config-对象"><a href="#7、config-对象" class="headerlink" title="7、config 对象"></a>7、config 对象</h3><p>config 对象的主要作用是取得服务器的配置信息。通过 pageConext对象的 getServletConfig() 方法可以获取一个config对象。当一个Servlet 初始化时，容器把某些信息通过 config对象传递给这个 Servlet。 开发者可以在web.xml 文件中为应用程序环境中的Servlet程序和JSP页面提供初始化参数。</p>
+<h3 id="8、page-对象"><a href="#8、page-对象" class="headerlink" title="8、page 对象"></a>8、page 对象</h3><p>page 对象代表JSP本身，只有在JSP页面内才是合法的。 page隐含对象本质上包含当前 Servlet接口引用的变量，类似于Java编程中的 this 指针。</p>
+<h3 id="9、exception-对象"><a href="#9、exception-对象" class="headerlink" title="9、exception 对象"></a>9、exception 对象</h3><p>exception 对象的作用是显示异常信息，只有在包含 isErrorPage=”true” 的页面中才可以被使用，在一般的JSP页面中使用该对象将无法编译JSP文件。excepation对象和Java的所有对象一样，都具有系统提供的继承结构。exception 对象几乎定义了所有异常情况。在Java程序中，可以使用try/catch关键字来处理异常情况； 如果在JSP页面中出现没有捕获到的异常，就会生成 exception 对象，并把 exception 对象传送到在page指令中设定的错误页面中，然后在错误页面中处理相应的 exception 对象。</p>
+<p>====================================================================================================================================</p>
+<p>JSP有九个内置对象（又叫隐含对象），不需要预先声明就可以在脚本代码和表达式中随意使用</p>
+<p>JSP九大内置对象分为四类：</p>
+<ul>
+<li>输入输出对象：out对象、response对象、request对象</li>
+<li>通信控制对象：pageContext对象、session对象、application对象</li>
+<li>Servlet对象:page对象、config对象</li>
+<li>错误处理对象：exception对象</li>
+</ul>
+<p>九种对象简介：</p>
+<ol>
+<li><strong>out对象</strong>：用于向客户端、浏览器输出数据。</li>
+<li><strong>request对象</strong>：封装了来自客户端、浏览器的各种信息。</li>
+<li><strong>response对象</strong>：封装了服务器的响应信息。</li>
+<li><strong>exception对象</strong>：封装了jsp程序执行过程中发生的异常和错误信息。</li>
+<li><strong>config对象</strong>：封装了应用程序的配置信息。</li>
+<li><strong>page对象</strong>：指向了当前jsp程序本身。</li>
+<li><strong>session对象</strong>：用来保存会话信息。也就是说，可以实现在同一用户的不同请求之间共享数</li>
+<li><strong>application对象</strong>：代表了当前应用程序的上下文。可以在不同的用户之间共享信息。</li>
+<li><strong>pageContext对象</strong>：提供了对jsp页面所有对象以及命名空间的访问。</li>
+</ol>
+<h4 id="一-out对象"><a href="#一-out对象" class="headerlink" title="一.out对象"></a>一.out对象</h4><p>out对象是一个输出流，用来向浏览器输出信息，除了输出各种信息外还负责对缓冲区进行管理。</p>
+<p>out对象方法介绍：</p>
+<table>
+<thead>
+<tr>
+<th>方法名</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>print或println</td>
+<td>输出数据</td>
+</tr>
+<tr>
+<td>newLine</td>
+<td>输出换行字符</td>
+</tr>
+<tr>
+<td>flush</td>
+<td>输出缓冲区数据</td>
+</tr>
+<tr>
+<td>close</td>
+<td>关闭输出流</td>
+</tr>
+<tr>
+<td>clear</td>
+<td>清除缓冲区中数据,但不输出到客户端</td>
+</tr>
+<tr>
+<td>clearBuffer</td>
+<td>清除缓冲区中数据,输出到客户端</td>
+</tr>
+<tr>
+<td>getBufferSize</td>
+<td>获得缓冲区大小</td>
+</tr>
+<tr>
+<td>getRemaining</td>
+<td>获得缓冲区中没有被占用的空间</td>
+</tr>
+<tr>
+<td>isAutoFlush</td>
+<td>是否为自动输出</td>
+</tr>
+</tbody></table>
+<h4 id="二-request对象"><a href="#二-request对象" class="headerlink" title="二.request对象"></a>二.request对象</h4><p>request对象封装了从客户端到服务器发出的请求信息。</p>
+<p>request对象方法介绍：</p>
+<table>
+<thead>
+<tr>
+<th>方法名</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>isUserInRole</td>
+<td>判断认证后的用户是否属于某一成员组</td>
+</tr>
+<tr>
+<td>getAttribute</td>
+<td>获取指定属性的值,如该属性值不存在返回Null</td>
+</tr>
+<tr>
+<td>getAttributeNames</td>
+<td>获取所有属性名的集合</td>
+</tr>
+<tr>
+<td>getCookies</td>
+<td>获取所有Cookie对象</td>
+</tr>
+<tr>
+<td>getCharacterEncoding</td>
+<td>获取请求的字符编码方式</td>
+</tr>
+<tr>
+<td>getContentLength</td>
+<td>返回请求正文的长度,如不确定返回-1</td>
+</tr>
+<tr>
+<td>getHeader</td>
+<td>获取指定名字报头值</td>
+</tr>
+<tr>
+<td>getHeaders</td>
+<td>获取指定名字报头的所有值,一个枚举</td>
+</tr>
+<tr>
+<td>getHeaderNames</td>
+<td>获取所有报头的名字,一个枚举</td>
+</tr>
+<tr>
+<td>getInputStream</td>
+<td>返回请求输入流,获取请求中的数据</td>
+</tr>
+<tr>
+<td>getMethod</td>
+<td>获取客户端向<a href="http://www.23book.net/Server/Index.htm" target="_blank" rel="noopener">服务器</a>端传送数据的方法</td>
+</tr>
+<tr>
+<td>getParameter</td>
+<td>获取指定名字参数值</td>
+</tr>
+<tr>
+<td>getParameterNames</td>
+<td>获取所有参数的名字,一个枚举</td>
+</tr>
+<tr>
+<td>getParameterValues</td>
+<td>获取指定名字参数的所有值</td>
+</tr>
+<tr>
+<td>getProtocol</td>
+<td>获取客户端向<a href="http://www.23book.net/Server/Index.htm" target="_blank" rel="noopener">服务器</a>端传送数据的协议名称</td>
+</tr>
+<tr>
+<td>getQueryString</td>
+<td>获取以get方法向<a href="http://www.23book.net/Server/Index.htm" target="_blank" rel="noopener">服务器</a>传送的查询字符串</td>
+</tr>
+<tr>
+<td>getRequestURI</td>
+<td>获取发出请求字符串的客户端地址</td>
+</tr>
+<tr>
+<td>getRemoteAddr</td>
+<td>获取客户端的IP地址</td>
+</tr>
+<tr>
+<td>getRemoteHost</td>
+<td>获取客户端的名字</td>
+</tr>
+<tr>
+<td>getSession</td>
+<td>获取和请求相关的会话</td>
+</tr>
+<tr>
+<td>getServerName</td>
+<td>获取<a href="http://www.23book.net/Server/Index.htm" target="_blank" rel="noopener">服务器</a>的名字</td>
+</tr>
+<tr>
+<td>getServerPath</td>
+<td>获取客户端请求文件的路径</td>
+</tr>
+<tr>
+<td>getServerPort</td>
+<td>获取<a href="http://www.23book.net/Server/Index.htm" target="_blank" rel="noopener">服务器</a>的端口号</td>
+</tr>
+<tr>
+<td>removeAttribute</td>
+<td>删除请求中的一个属性</td>
+</tr>
+<tr>
+<td>setAttribute</td>
+<td>设置指定名字参数值</td>
+</tr>
+</tbody></table>
+<p>request对象演示：</p>
+<p>完成一个简单的用户注册信息界面，将注册信息发送到欢迎界面上。</p>
+<p>用户注册界面表单设置：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&lt;form action=&quot;do_register.jsp&quot; method=&quot;post&quot;&gt;</span><br><span class="line">    用户名：</span><br><span class="line">    &lt;input type=&quot;text&quot; name=&quot;userName&quot;&gt;&lt;br&gt;</span><br><span class="line">    技能：</span><br><span class="line">    &lt;input type=&quot;checkbox&quot; name=&quot;skills&quot; value=&quot;java&quot;&gt;java</span><br><span class="line">    &lt;input type=&quot;checkbox&quot; name=&quot;skills&quot; value=&quot;python&quot;&gt;python</span><br><span class="line">    &lt;input type=&quot;checkbox&quot; name=&quot;skills&quot; value=&quot;ruby&quot;&gt;ruby</span><br><span class="line">    &lt;input type=&quot;checkbox&quot; name=&quot;skills&quot; value=&quot;golang&quot;&gt;golang</span><br><span class="line">    &lt;br&gt;</span><br><span class="line">    &lt;input type=&quot;submit&quot; value=&quot;提交&quot;&gt;</span><br><span class="line">    &lt;input type=&quot;reset&quot; value=&quot;重置&quot;&gt;</span><br><span class="line">&lt;/form&gt;</span><br></pre></td></tr></table></figure>
+
+<p>用户注册信息处理界面使用getParameter方法将用户的表单信息提取出来</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">String name=request.getParameter(&quot;userName&quot;);</span><br><span class="line">String[] skillArr=request.getParameterValues(&quot;skills&quot;);</span><br></pre></td></tr></table></figure>
+
+<p>将skillArr数组转换成字符串：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">String skills=&quot;&quot;;</span><br><span class="line">if (skillArr!=null&amp;&amp;skillArr.length&gt;0)&#123;</span><br><span class="line">    for (String skill:skillArr</span><br><span class="line">         ) &#123;</span><br><span class="line">        skills=skills+skill+&quot; &quot;;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>将数据使用setAttribute保存起来</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">request.setAttribute(&quot;userName&quot;,name);</span><br><span class="line">request.setAttribute(&quot;skills&quot;,skills);</span><br></pre></td></tr></table></figure>
+
+<p>使用jsp的forword指令将页面跳转到welcome.jsp</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;jsp:forward page=&quot;welcome.jsp&quot;&gt;&lt;/jsp:forward&gt;</span><br></pre></td></tr></table></figure>
+
+<p>setAttribute和getAttribute用于在web组件之间共享信息<br>getparameter方法用于接收服务器通过set和post方法传输的数据<br>注意没有setparameter方法</p>
+<p>welcome.jsp页面配置：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;title&gt;技能展示界面&lt;/title&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">信息展示界面：&lt;br&gt;&lt;br&gt;</span><br><span class="line">&lt;%--&lt;%=%&gt;这是表达式&lt;%%&gt;这是jsp程序处理--%&gt;</span><br><span class="line">姓名：&lt;%=request.getAttribute(&quot;userName&quot;)%&gt;&lt;br&gt;</span><br><span class="line">技能：&lt;%=request.getAttribute(&quot;skills&quot;)%&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+
+<p><img src="http://img.blog.csdn.net/20160409211851628?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQv/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt="img"></p>
+<p><img src="http://img.blog.csdn.net/20160409211902894?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQv/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt="img"></p>
+<h4 id="三-response对象"><a href="#三-response对象" class="headerlink" title="三.response对象"></a>三.response对象</h4><p>response对象主要用于对客户端的请求进行回应。<br>以及处理http的连接信息，例如设置http文件头，设置cookie对象等。</p>
+<p>response对象方法：</p>
+<table>
+<thead>
+<tr>
+<th>方法名</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>addCookie</td>
+<td>添加一个Cookie对象</td>
+</tr>
+<tr>
+<td>addHeader</td>
+<td>添加Http文件指定名字头信息</td>
+</tr>
+<tr>
+<td>containsHeader</td>
+<td>判断指定名字Http文件头信息是否存在</td>
+</tr>
+<tr>
+<td>encodeURL</td>
+<td>使用sessionid封装URL</td>
+</tr>
+<tr>
+<td>flushBuffer</td>
+<td>强制把当前缓冲区内容发送到客户端</td>
+</tr>
+<tr>
+<td>getBufferSize</td>
+<td>返回缓冲区大小</td>
+</tr>
+<tr>
+<td>getOutputStream</td>
+<td>返回到客户端的输出流对象</td>
+</tr>
+<tr>
+<td>sendError</td>
+<td>向客户端发送错误信息</td>
+</tr>
+<tr>
+<td>sendRedirect</td>
+<td>把响应发送到另一个位置进行处理</td>
+</tr>
+<tr>
+<td>setContentType</td>
+<td>设置响应的MIME类型</td>
+</tr>
+<tr>
+<td>setHeader</td>
+<td>设置指定名字的Http文件头信息</td>
+</tr>
+</tbody></table>
+<h4 id="四-session对象"><a href="#四-session对象" class="headerlink" title="四.session对象"></a>四.session对象</h4><p>session对象：是一个jsp内置对象，它在第一个jsp被装载时自动创建，完成会话期管理。从一个客户打开浏览器并连接到服务器开始，到客户关闭浏览器离  开这个服务器结束(或者超时)，被称为一个会话。当一个客户访问一个服务器时，可能会在这个服务器的几个页面之间切换，服务器应当通过某种办法知道这是一个客户，就需要创建session对象。</p>
+<p>http是无状态的连接协议，需要使用session来存放用户每次的登陆信息</p>
+<p>session对象方法：</p>
+<table>
+<thead>
+<tr>
+<th>方法名</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>getAttribute</td>
+<td>获取指定名字的属性</td>
+</tr>
+<tr>
+<td>getAttributeNames</td>
+<td>获取session中全部属性名字,一个枚举</td>
+</tr>
+<tr>
+<td>getCreationTime</td>
+<td>返回session的创建时间</td>
+</tr>
+<tr>
+<td>getId</td>
+<td>获取会话标识符</td>
+</tr>
+<tr>
+<td>getLastAccessedTime</td>
+<td>返回最后发送请求的时间</td>
+</tr>
+<tr>
+<td>getMaxInactiveInterval</td>
+<td>返回session对象的生存时间单位千分之一秒</td>
+</tr>
+<tr>
+<td>invalidate</td>
+<td>销毁session对象</td>
+</tr>
+<tr>
+<td>isNew</td>
+<td>每个请求是否会产生新的session对象</td>
+</tr>
+<tr>
+<td>removeAttribute</td>
+<td>删除指定名字的属性</td>
+</tr>
+<tr>
+<td>setAttribute</td>
+<td>设定指定名字的属性值</td>
+</tr>
+</tbody></table>
+<p>接下来通过一个登陆的小例子来演示下session对象的应用：</p>
+<p>登陆表单设置：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;form action=&quot;do_login.jsp&quot; method=&quot;post&quot;&gt;</span><br><span class="line">    userName:&lt;input type=&quot;text&quot; name=&quot;userName&quot;&gt;&lt;br/&gt;</span><br><span class="line">    password:&lt;input type=&quot;password&quot; name=&quot;password&quot;&gt;&lt;br/&gt;</span><br><span class="line">    &lt;input type=&quot;submit&quot; value=&quot;submit&quot;&gt;</span><br><span class="line">    &lt;input type=&quot;reset&quot; value=&quot;reset&quot;&gt;</span><br><span class="line">&lt;/form&gt;</span><br></pre></td></tr></table></figure>
+
+<p>登陆逻辑处理界面，使用getParameter获取到用户名和密码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">String userName=request.getParameter(&quot;userName&quot;);</span><br><span class="line">String password=request.getParameter(&quot;password&quot;);</span><br></pre></td></tr></table></figure>
+
+<p>对用户名和密码进行判断：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">if (userName!=null&amp;&amp;password!=null)&#123;</span><br><span class="line">    session.setAttribute(&quot;userName&quot;,userName);</span><br><span class="line">    response.setHeader(&quot;refresh&quot;,&quot;2;URL=welcome.jsp&quot;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>在欢迎界面使用getAttribute获取当前的用户名：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;%if(session.getAttribute(&quot;userName&quot;)!=null)&#123;%&gt;</span><br><span class="line">&lt;%--getAttribute方法是使用指定的key获取session中的value值。获取到的是一个object对象</span><br><span class="line">在使用的时候需要根据具体的类型进行类型转换。</span><br><span class="line">这里取出的是一个字符串，直接调用会使用他的toString方法，因此不用进行转换--%&gt;</span><br><span class="line">欢迎 &lt;%=session.getAttribute(&quot;userName&quot;)%&gt;</span><br><span class="line">&lt;a href=&quot;logout.jsp&quot;&gt;注销&lt;/a&gt;</span><br><span class="line">&lt;%&#125;else&#123;%&gt;</span><br><span class="line">请先登陆</span><br><span class="line">&lt;a href=&quot;login.jsp&quot;&gt;登陆&lt;/a&gt;</span><br><span class="line">&lt;%&#125;%&gt;</span><br></pre></td></tr></table></figure>
+
+
+
+<p>判断session对象是否是新创建</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;%if (session.isNew())&#123;%&gt;</span><br><span class="line"></span><br><span class="line">&lt;br/&gt;</span><br><span class="line">&lt;br/&gt;</span><br><span class="line">欢迎新用户</span><br><span class="line">&lt;%&#125;else&#123;%&gt;</span><br><span class="line">&lt;br/&gt;</span><br><span class="line">&lt;br/&gt;</span><br><span class="line">欢迎老用户</span><br><span class="line">&lt;%&#125;%&gt;</span><br></pre></td></tr></table></figure>
+
+
+
+<p>在登出界面里清除session对象信息，并跳转到欢迎界面中去：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">session.invalidate();//清除掉session对象</span><br><span class="line">response.setHeader(&quot;refresh&quot;,&quot;2;URL=welcome.jsp&quot;);</span><br></pre></td></tr></table></figure>
+
+<p><img src="http://blog.csdn.net/icarus_wang/article/details/51107771" alt="阅读更多…"></p>
+<p><img src="http://img.blog.csdn.net/20160409214922437?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQv/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt="img"></p>
+<p><img src="http://img.blog.csdn.net/20160409214934765?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQv/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt="img"></p>
+<h4 id="五-application对象"><a href="#五-application对象" class="headerlink" title="五.application对象"></a>五.application对象</h4><p>application对象代表当前的应用程序。存在于服务器的内存空间中。<br>应用一旦启动便会自动生成一个application对象。如果应用没有被关闭，<br>此application对象便一直会存在。直到应用被关闭<br>application的生命周期比session更长。<br>应用：<br>为多个用户共享全局信息。比如当前的在线人数等。</p>
+<p>application对象方法：</p>
+<table>
+<thead>
+<tr>
+<th>方法名</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>getAttribute</td>
+<td>获取应用对象中指定名字的属性值</td>
+</tr>
+<tr>
+<td>getAttributeNames</td>
+<td>获取应用对象中所有属性的名字,一个枚举</td>
+</tr>
+<tr>
+<td>getInitParameter</td>
+<td>返回应用对象中指定名字的初始参数值</td>
+</tr>
+<tr>
+<td>getServletInfo</td>
+<td>返回Servlet编译器中当前版本信息</td>
+</tr>
+<tr>
+<td>setAttribute</td>
+<td>设置应用对象中指定名字的属性值</td>
+</tr>
+</tbody></table>
+<p>可以使用application对象来实现页面访问次数记录的功能：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&lt;%</span><br><span class="line">    Object obj=application.getAttribute(&quot;counter&quot;);</span><br><span class="line">    if (obj==null)&#123;</span><br><span class="line">        application.setAttribute(&quot;counter&quot;,new Integer(1));</span><br><span class="line">        out.println(&quot;该页面被访问了1次&lt;br/&gt;&quot;);</span><br><span class="line">    &#125;else &#123;</span><br><span class="line">        int countValue=new Integer(obj.toString());</span><br><span class="line">        countValue++;</span><br><span class="line">        out.println(&quot;该页面被访问了&quot;+countValue+&quot;次&lt;br/&gt;&quot;);</span><br><span class="line">        application.setAttribute(&quot;counter&quot;,countValue);//java会自动装箱</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">%&gt;</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="六-config对象"><a href="#六-config对象" class="headerlink" title="六.config对象"></a>六.config对象</h4><p>config对象表示当前jsp程序的配置信息<br>一般项目中，jsp被用作模版技术，也就是位于表示层<br>而位于表示层的jsp文件一般是不需要配置信息的<br>所以此对象在jsp程序中其实很少使用<br>config对象是servletConfig类的一个实例。</p>
+<p>config对象方法：</p>
+<table>
+<thead>
+<tr>
+<th>方法名</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>getServletContext</td>
+<td>返回所执行的Servlet的环境对象</td>
+</tr>
+<tr>
+<td>getServletName</td>
+<td>返回所执行的Servlet的名字</td>
+</tr>
+<tr>
+<td>getInitParameter</td>
+<td>返回指定名字的初始参数值</td>
+</tr>
+<tr>
+<td>getInitParameterNames</td>
+<td>返回该JSP中所有的初始参数名,一个枚举</td>
+</tr>
+</tbody></table>
+<h4 id="七-page对象"><a href="#七-page对象" class="headerlink" title="七.page对象"></a>七.page对象</h4><p>page对象有点类似与java编程中的this指针，他指向了当前jsp页面本身。<br>page对象是java.lang.object类的一个实例</p>
+<p>page对象拥有一个toString方法，下面是官方定义的方法介绍：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">public String toString() &#123;</span><br><span class="line">    return getClass().getName() + &quot;@&quot; + Integer.toHexString(hashCode());</span><br><span class="line">&#125;</span><br><span class="line">包名+类名+@+hashcode值</span><br></pre></td></tr></table></figure>
+
+
+
+<p>page对象的方法：</p>
+<table>
+<thead>
+<tr>
+<th>方法名</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>toString</td>
+<td>将当前项目的信息打印出来</td>
+</tr>
+<tr>
+<td>getClass</td>
+<td>返回当前的object类</td>
+</tr>
+<tr>
+<td>hashCode</td>
+<td>返回page对象的hashCode值</td>
+</tr>
+<tr>
+<td>equals</td>
+<td>用于比较对象是否与当前对象相同</td>
+</tr>
+</tbody></table>
+<h4 id="八-exception对象"><a href="#八-exception对象" class="headerlink" title="八.exception对象"></a>八.exception对象</h4><p>exception对象表示jsp引擎在执行代码时抛出的异常<br>如果想要使用exception对象，那么需要配置编译指令的isErrorPage属性为true</p>
+<p>即在页面指令中设置:&lt;%@page isErrorPage=“true”%&gt;</p>
+<h4 id="九：pageContext对象"><a href="#九：pageContext对象" class="headerlink" title="九：pageContext对象"></a>九：pageContext对象</h4><p>pageContetx对象是jsp页面中所有对象功能的最大集成着。<br>使用他可以访问所有的jsp内置对象。</p>
+<p>pageContext对象方法：</p>
+<table>
+<thead>
+<tr>
+<th>方法名</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>forward</td>
+<td>重定向到另一页面或Servlet组件</td>
+</tr>
+<tr>
+<td>getAttribute</td>
+<td>获取某范围中指定名字的属性值</td>
+</tr>
+<tr>
+<td>findAttribute</td>
+<td>按范围搜索指定名字的属性</td>
+</tr>
+<tr>
+<td>removeAttribute</td>
+<td>删除某范围中指定名字的属性</td>
+</tr>
+<tr>
+<td>setAttribute</td>
+<td>设定某范围中指定名字的属性值</td>
+</tr>
+<tr>
+<td>getException</td>
+<td>返回当前异常对象</td>
+</tr>
+<tr>
+<td>getRequest</td>
+<td>返回当前请求对象</td>
+</tr>
+<tr>
+<td>getResponse</td>
+<td>返回当前响应对象</td>
+</tr>
+<tr>
+<td>getServletConfig</td>
+<td>返回当前页面的ServletConfig对象</td>
+</tr>
+<tr>
+<td>getServletContext</td>
+<td>返回所有页面共享的ServletContext对象</td>
+</tr>
+<tr>
+<td>getSession</td>
+<td>返回当前页面的会话对象</td>
+</tr>
+</tbody></table>
+	
+	</div>
+	
+	<div id="current-post-cover" data-scr="/img/cart_cover.jpg"></div>
+
+	<!-- relate post, comment...-->
+	<div class="investment-container">
+		<div class="investment-header">
+			<div class="investment-title-1">
+				<div class="on">Related post</div>
+				<div>Comment</div>
+				<div>Share</div>
+			</div>
+			<div class="investment-title-2">	            
+				
+	<span>
+		<a href="javascript: window.scrollTo(0, 0);">To Top</a>
+		
+		
+			<a href="/2019/10/30/博客搭建/" title="博客搭建" rel="next">
+				Next post&raquo;
+			</a>
+			
+	</span>
+
+
+      		
+			</div>	
+		</div>
+		
+		<div class="investment-content">
+			<div class="investment-content-list">
+				
+
+<div class="relate-post">
+	
+		<ul>
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2019/10/30/博客搭建/" title="博客搭建">
+								博客搭建			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								十月 30日, 2019				
+							</p>
+							<p class="relate-post-content">
+								目录一、前期准备    
+二、软件安装    
+三、Hexo配置流程    
+四、部署到GitHub服务器    
+五、发布博客内容    
+Github个人技术博客搭建步骤
+一、前期准备1、GitHub账号
+注册地址：https:/...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="/2019/10/30/博客搭建/" title="博客搭建">				
+								
+								<img class="lazy" src="/img/placeholder.jpg" data-src="/img/cart_cover.jpg" alt="博客搭建"/>
+							</a>
+						</div>
+					</li>											
+			
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2019/10/17/Mysql知识点汇总/" title="Mysql知识点汇总">
+								Mysql知识点汇总			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								十月 17日, 2019				
+							</p>
+							<p class="relate-post-content">
+								Mysql数据库知识点1.管理数据库语句：使用数据库：
+use test;
+添加数据库：
+create database 数据库名;
+create database test;
+修改数据库：
+alter database 数据库名;
+...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="/2019/10/17/Mysql知识点汇总/" title="Mysql知识点汇总">				
+								
+								<img class="lazy" src="/img/placeholder.jpg" data-src="/img/cart_cover.jpg" alt="Mysql知识点汇总"/>
+							</a>
+						</div>
+					</li>											
+			
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2019/10/16/JAVA知识点汇总/" title="JAVA知识点汇总">
+								JAVA知识点汇总			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								十月 16日, 2019				
+							</p>
+							<p class="relate-post-content">
+								第二章：类和对象的创建概念：面向对象就是把一个项目，一个事情分成更小的项目，或者说分成一个个更小的部分，每一部分负责什么方面的功能，最后再由这些部分组合而成为一个整体。
+好处：面相对象更接近实物的本质，提高代码的复用更具有扩展性。
+如...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="/2019/10/16/JAVA知识点汇总/" title="JAVA知识点汇总">				
+								
+								<img class="lazy" src="/img/placeholder.jpg" data-src="/img/cart_cover.jpg" alt="JAVA知识点汇总"/>
+							</a>
+						</div>
+					</li>											
+			
+			
+		</ul>
+	
+</div>	
+			</div>
+			<div class="investment-content-list">
+				<div class="layout-comment">
+
+	
+
+		
+
+			<!-- I don't know !!!-->
+			<div>Please check the comment setting in config.yml of hexo-theme-Annie!</div>
+			
+		
+		
+	
+
+</div>
+			</div>
+			<div class="investment-content-list">
+				<div class="layout-share">
+	
+	
+
+		
+			
+			<!-- socialShare share -->
+			<div class="social-share"></div>
+
+<!--  css & js -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/css/share.min.css">
+<script async src="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/js/social-share.min.js"></script>
+			
+		
+		
+	
+</div>
+
+
+			</div>
+		</div>	
+	</div>
+	</div>
+</div>
+
+
+
+	<!-- leancloud -->
+	<!--
+	时间：2018-11-27
+	描述：
+		文章访问量：visitors
+		文章喜欢量：likes	
+		文章排行榜：topNPost
+		其他得说明：
+			01-Cookie相关的函数 
+				https://blog.csdn.net/somehow1002/article/details/78511541（Author：somehow1002）
+			02-visitors相关的函数 
+				https://blog.csdn.net/u013553529/article/details/63357382（Author：爱博客大伯）
+				https://notes.doublemine.me/2015-10-21-为NexT主题添加文章阅读量统计功能.html（Author：夏末）
+			03-topNPost相关的函数
+				https://hoxis.github.io/hexo-next-read-rank.html（Author：hoxis）
+			04-likes相关的函数，
+				参考了01 & 02进行简单的设计与实现
+-->
+
+
+	
+
+
+<!-- show math formula -->
+
+
+
+	 
+	<script src="/plugin/clipboard/clipboard.js"></script>
+	<script>
+		// Copy code !
+	    function codePreprocessing() {
+	        $("#article-content .highlight").each(function() {
+
+	            $(this).wrap('<div id="post-code"></div>');
+
+	        })
+
+	        $("#article-content #post-code").each(function() {
+
+	            $(this).prepend('<nav class="copy-nav"><span><i class="code-language"></i></span></nav>');
+
+	        })
+
+	        $("#article-content .copy-nav").each(function() {
+	            var temp = $(this).next().attr('class'),
+	                language = ((temp.length > 9) && (temp != null)) ? temp.substr(10) : "none"; //why 9? Need to check language?
+
+	            $(this).find('.code-language').text(language);
+
+	            $(this).append('<span class="copy-btn"><i class="fa fa-copy" aria-hidden="true"></i></span>');
+
+	        });
+	    }
+
+		function codeCopy() {
+		    $('#article-content #post-code').each(function(i) {
+		        var codeCopyId = 'codeCopy-' + i;
+
+		        var codeNode = $(this).find('.code'),
+		            copyButton = $(this).find('.copy-btn');
+
+		        codeNode.attr('id', codeCopyId);
+		        copyButton.attr('data-clipboard-target-id', codeCopyId);
+		    })
+
+		    
+			var clipboard = new ClipboardJS('.copy-btn', {
+					target: function(trigger) {
+						return document.getElementById(trigger.getAttribute('data-clipboard-target-id'));
+					}
+		      	});
+
+			//pure js
+			function showTooltip(elem, msg) {		   
+				elem.setAttribute('aria-label', msg);
+				elem.setAttribute('class', 'copy-btn copy-status');
+				setTimeout(function() {
+					elem.setAttribute('class', 'copy-btn');
+				}, 2000);
+			}
+
+			clipboard.on('success', function(e) {
+			    e.clearSelection();
+			    console.info('Action:', e.action);		   
+			    console.info('Trigger:', e.trigger);
+			    showTooltip(e.trigger, 'Copied!');
+			    
+			});
+			clipboard.on('error', function(e) {
+			    console.error('Action:', e.action);
+			    console.error('Trigger:', e.trigger);
+			});
+		
+
+		}
+
+		if ($('.layout-post').length) {
+		    codePreprocessing();
+		    codeCopy();
+		} 
+	</script>
+
+
+
+
+
+<link rel="stylesheet" href="/plugin/fancybox/jquery.fancybox.css">
+<script src="/plugin/fancybox/jquery.fancybox.js"></script>
+
+<script type="text/javascript">
+	var titleID = $('.article-title a'),
+		imageID = $('.article-content img'),
+		videoID = $('.article-content video');
+
+	var postTitle = titleID.text() ? titleID.text() : "No post title!";
+
+	imageID.each(function() {
+		var imgPath = $(this).attr('src'),
+			imgTitle = $(this).attr('alt') ? $(this).attr('alt') : "No image description!";
+
+		//给每个匹配的<img>元素打包, 即添加父元素<a>
+		$(this).wrap('<a data-fancybox="gallery" data-caption=" 《 ' + postTitle + ' 》 ' + imgTitle + ' "  href=" ' + imgPath + ' "> </a>');
+	});
+
+	videoID.each(function() {
+		var videoPath = $(this).attr('src');
+
+		//给每个匹配的<img>元素打包, 即添加父元素<a>
+		$(this).wrap('<a data-fancybox href=" ' + videoPath + ' "> </a>');
+	});
+	//TODO：支持html5 video
+
+	if($('#layout-post').length) {
+		$('[data-fancybox="gallery"]').fancybox({
+			loop: true,
+			buttons: [
+				"zoom",
+				"share",
+				"slideShow",
+				"fullScreen",
+				//"download",
+				"thumbs",
+				"close"
+			],
+			protect: false
+		});
+	}
+</script>
+		</main>
+
+		<!--footer-->
+		<footer>
+	<div class="social">
+		<ul>
+	
+		<li>
+			<a href="http://github.com/" target="_blank">
+				<i class="fa fa-github"></i>
+			</a>
+		</li>
+	
+		<li>
+			<a href="http://github.com/" target="_blank">
+				<i class="fa fa-weibo"></i>
+			</a>
+		</li>
+	
+		<li>
+			<a href="http://github.com/" target="_blank">
+				<i class="fa fa-pinterest"></i>
+			</a>
+		</li>
+	
+		<li>
+			<a href="http://github.com/" target="_blank">
+				<i class="fa fa-instagram"></i>
+			</a>
+		</li>
+	
+		<li>
+			<a href="http://github.com/" target="_blank">
+				<i class="fa fa-twitter"></i>
+			</a>
+		</li>
+	
+		<li>
+			<a href="/atom.xml" target="_blank">
+				<i class="fa fa-rss"></i>
+			</a>
+		</li>
+			
+</ul>
+
+	</div>
+		
+	<div class="copyright">
+		<p>
+			 
+				&copy;2017 - 2019, content by John Doe. All Rights Reserved.
+			
+			
+			
+
+	<!-- busuanzi -->
+	<!-- busuanzi -->
+
+		
+	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+	
+
+		<span id="busuanzi_container_page_pv">
+	  		本文总阅读量<span id="busuanzi_value_page_pv"></span>次
+		</span>
+
+	
+
+
+
+
+		</p>
+		<p>
+			<a href="http://hexo.io/" title="Hexo" target="_blank" rel="noopener">Hexo</a> Theme <a href="https://github.com/Sariay/hexo-theme-Annie" title="Annie" target="_blank" rel="noopener">Annie</a> by Sariay.
+			<a href="javascript:zh_tran('s');" class="zh_click" id="zh_click_s">简体</a> 
+			<a href="javascript:zh_tran('t');" class="zh_click" id="zh_click_t">繁體</a>				
+		</p>
+	</div>		
+</footer>
+		
+	<!-- set '1' to show motto in all pages! -->
+
+	<script src="/plugin/motto/motto.js"></script>
+	
+	<script type="text/javascript">
+		$(".motto").html( getMingYanContent() );
+	</script>	
+
+
+
+
+
+<!-- love effect -->
+
+	<script src="/plugin/love/love.js"></script>
+
+
+<!-- back to top -->
+
+	
+	<div id="totop">
+  		<a href="javascript:;"  name="TOTOP" class="fa fa-arrow-up" ></a>
+	</div>
+
+
+
+
+<!-- site analysis -->
+
+
+	<!-- site-analysis -->
+	
+
+	
+	
+	
+	
+ 
+
+<script src="/plugin/vibrant/vibrant.js"></script>
+<script src="/plugin/chinese/chinese.js"></script>
+<script src="/plugin/imgLazyLoader/yall.min.js"></script>
+<script src="/plugin/imgResize/jquery.resizeimagetoparent.min.js"></script>
+<script src="/plugin/nicescroll/jquery.nicescroll.js"></script>
+<script src="/js/resizediv.js"></script>
+<script src="/js/main.js"></script>
+	</body>	
+</html>
