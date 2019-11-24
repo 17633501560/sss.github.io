@@ -13,7 +13,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
   <title>
     
-      Mysql知识点汇总 | Hexo
+      MVC模式 | Hexo
     
   </title>
   <meta name="author" content="John Doe">
@@ -160,7 +160,7 @@
 	<!-- Page title -->
 	<p>
 		
-			Current post&nbsp;:&nbsp;《Mysql知识点汇总》
+			Current post&nbsp;:&nbsp;《MVC模式》
 		
 	</p>
 
@@ -277,8 +277,8 @@
 	<div class="article-title">
 		<i class="fa fa-paper-plane-o" aria-hidden="true"></i>
 		
-	<a href="/2019/10/17/Mysql知识点汇总/" itemprop="url">
-		Mysql知识点汇总
+	<a href="/2019/11/24/MVC模式/" itemprop="url">
+		MVC模式
 	</a>
 
 	</div>
@@ -291,9 +291,9 @@
 
 	Posted on
 
-	<a href="/2019/10/17/Mysql知识点汇总/" itemprop="url">
-		<time datetime="2019-10-17T13:30:15.000Z" itemprop="datePublished">
-	  		2019-10-17
+	<a href="/2019/11/24/MVC模式/" itemprop="url">
+		<time datetime="2019-11-24T08:32:52.000Z" itemprop="datePublished">
+	  		2019-11-24
 	  </time>
 	</a>
 	&nbsp;
@@ -309,9 +309,9 @@
 
 	Updated on
 
-	<a href="/2019/10/17/Mysql知识点汇总/" itemprop="url">
-		<time datetime="2019-10-17T13:30:15.000Z" itemprop="dateUpdated">
-	  		2019-10-17
+	<a href="/2019/11/24/MVC模式/" itemprop="url">
+		<time datetime="2019-11-24T08:32:52.000Z" itemprop="dateUpdated">
+	  		2019-11-24
 	  </time>
 	</a> 
 
@@ -330,141 +330,109 @@
 	</div>
 
 	<div class="article-content" id="article-content">
-		<h1 id="Mysql数据库知识点"><a href="#Mysql数据库知识点" class="headerlink" title="Mysql数据库知识点"></a>Mysql数据库知识点</h1><h2 id="1-管理数据库语句："><a href="#1-管理数据库语句：" class="headerlink" title="1.管理数据库语句："></a>1.管理数据库语句：</h2><p><strong>使用数据库：</strong></p>
-<p>use test;</p>
-<p><strong>添加数据库：</strong></p>
-<p>create database 数据库名;</p>
-<p>create database test;</p>
-<p><strong>修改数据库：</strong></p>
-<p>alter database 数据库名;</p>
-<p>alter database test;</p>
-<p><strong>删除数据库：</strong></p>
-<p>drop database 数据库名;</p>
-<p>drop database test;</p>
-<p><strong>查看所有数据库：</strong></p>
-<p>show databases;</p>
-<h2 id="2-管理表语句："><a href="#2-管理表语句：" class="headerlink" title="2.管理表语句："></a><strong>2.管理表语句：</strong></h2><p><strong>添加数据表：</strong></p>
-<p>create table 表名(</p>
-<p>　　列名 数据类型 数据约束,</p>
-<p>　　列名 数据类型 数据约束</p>
-<p>);</p>
-<p>create table student(</p>
-<p>　　name varchar(20) not null,</p>
-<p>　　age int(4)</p>
-<p>)</p>
-<p><strong>修改数据表：</strong></p>
-<p>alter table 表名;</p>
-<p>1)在表中增加新字段</p>
-<p>alter table student add colunm name varchar(20);</p>
-<p>2)删除表中的字段</p>
-<p>alter table student drop name;</p>
-<p>3)修改表中字段的类型</p>
-<p>alter table student modify name varchar(10);</p>
-<p><strong>删除数据表：</strong></p>
-<p>drop table 表名;</p>
-<p>drop table student;</p>
-<p><strong>查看所有表：</strong></p>
-<p>show tables;</p>
-<h2 id="3-管理数据语句："><a href="#3-管理数据语句：" class="headerlink" title="3.管理数据语句："></a>3.管理数据语句：</h2><p><strong>插入数据：</strong></p>
-<p>insert into 表名 (列1,列2…)  values (值1,值2…);</p>
-<p>insert into student (name,age) values (‘张三’,20);</p>
-<p><strong>更新数据：</strong></p>
-<p>update 表名 set 列=修改值 where 条件;</p>
-<p>update student set  name=’李四’ where name=’张三’;</p>
-<p><strong>删除数据：</strong></p>
-<p>delete from 表名 where 条件;</p>
-<p>delete from student where name=’李四’;</p>
-<p><strong>查询数据：</strong></p>
-<p>selete *  from 表名 where 条件;</p>
-<p>selete * from student where name=’张三’;</p>
-<h2 id="4-各种查询语句："><a href="#4-各种查询语句：" class="headerlink" title="4.各种查询语句："></a><strong>4.各种查询语句：</strong></h2><p><strong>查询时指定别名：</strong></p>
-<p>1) selete id AS ‘编号’,name AS ‘姓名’ from student;</p>
-<p>2) selete id ‘编号’,name ‘姓名’ from student;(AS可以省略)</p>
-<p><strong>查询时合并列：</strong></p>
-<p>需求:查询每个学生的总分</p>
-<p>selete name AS ‘姓名’,(servlet+mysql) AS ‘总成绩’ from student;</p>
-<p>注意:合并列的字段必须是数值类型的字段</p>
-<p><strong>查询时去除重复(distinct)：</strong></p>
-<p>需求:查询有哪些地区的学生</p>
-<p>selete DISTINCT address from student;</p>
-<p>另一种语法</p>
-<p>selete DISTINCT(address) from student;</p>
-<h3 id="条件查询"><a href="#条件查询" class="headerlink" title="条件查询"></a><strong>条件查询</strong></h3><p><strong>逻辑条件: and  or</strong></p>
-<p>需求:查询学生的id为1，且姓名为张三的学生</p>
-<p>selete * from student where id=1 and name=’张三’;(交集)</p>
-<p>需求:查询学生的id为2，或姓名为张三的学生</p>
-<p>selete * from student where id=2 or name=’张三’;(并集)</p>
-<p><strong>比较条件: &gt;  &lt;  &gt;=  &lt;=  =  &lt;&gt;  (between and–在…之间 包前包后)</strong></p>
-<p>需求:查询servlet分数大于80分的学生</p>
-<p>selete * from student where servlet&gt;80;</p>
-<p>需求:查询mysql分数小于或等于85分的学生</p>
-<p>selete * from student where mysql&lt;=85;</p>
-<p>需求:查询servlet分数大于或等于80分，且小于或等于85分的学生</p>
-<p>selete * from student where servlet&gt;=80 AND servlet&lt;=85;</p>
-<p>代替上面语句的语法</p>
-<p>selete * from student where servlet BETWEEN 80 AND 85;</p>
-<p>需求:查询年龄不等于30的学生</p>
-<p>selete * from student where age&lt;&gt;30;</p>
-<p><strong>判空条件: is null,   is not null,   =**</strong>’’<strong><strong>,   &lt;&gt;</strong></strong>’’**</p>
-<p>Null:表示没有数据</p>
-<p>空字符:表示有数据</p>
-<p>需求:查询没有性别数据的学生(数据‘男’或‘女’)</p>
-<p>selete* from student where gender IS NULL OR gender=’’;</p>
-<p>需求:查询有性别数据的学生</p>
-<p>selete * from student where gender IS NOT NULL AND gender&lt;&gt;’’;</p>
-<p><strong>模糊条件: like</strong></p>
-<p>模糊替代符号:</p>
-<p>%:替代任意个字符</p>
-<p>_:替代一个字符</p>
-<p>需求:查询姓“李”的学生</p>
-<p>SELECT * FROM student WHERE NAME LIKE ‘李%’;</p>
-<p>需求:查询姓名中包含‘四’字的学生</p>
-<p>SELECT * FROM student WHERE NAME LIKE ‘%四%’;</p>
-<p>需求:查询姓‘李’，全名只有两个字的学生</p>
-<p>SELECT * FROM student WHERE NAME LIKE ‘李_’;</p>
-<p><strong>聚合函数查询(用于统计结果)</strong></p>
-<p>Max()取最大值  min()取最小值  avg()取平均值  count()统计标的记录数量 sum()求和</p>
-<p>需求:查询servlet的最高分</p>
-<p>SELECT MAX(servlet) FROM student;</p>
-<p>需求:查询mysql的最低分</p>
-<p>SELECT MIN(mysql) FROM student;</p>
-<p>需求:查询servlet的平均分</p>
-<p>SELECT AVG(servlet) FROM student;</p>
-<p>需求:查询当前有几个学生</p>
-<p>SELECT COUNT(*) FROM student;</p>
-<p>需求:查询servlet成绩的总和</p>
-<p>SELETE SUM(servlet) from student;</p>
-<p><strong>分页查询(limit)</strong></p>
-<p>Limit起始行数，查询的行数</p>
-<p>起始行数从0开始</p>
-<p>需求:查询第1,2条数据</p>
-<p>SELECT * FROM student LIMIT 0,2;</p>
-<p>分页查询需知道:当前页码，每页显示条数</p>
-<p>结论分页查询当前页数据:select * from student limit (当前页码-1)*每页显示条数，每页显示条数;</p>
-<p>需求:学生共20条数据，每页显示5条，共4页</p>
-<p>查询第3页(第11到15条)的学生数据:select * from student limit 10,5;</p>
-<p><strong>查询后排序(order by)</strong></p>
-<p>DESC:降序。数值从大到小，字母z-a</p>
-<p>ASC:升序。数值从小到大，字母a-z</p>
-<p>默认情况下，按照插入的顺序排序</p>
-<p>需求:按照id的升序排序</p>
-<p>select * from student order by id asc;</p>
-<p>需求:按照servlet成绩降序排序</p>
-<p>select * from student order by servlet desc;</p>
-<p>多个排序条件的情况:先按照前面的条件排序，当出现重复记录，再按照后面的条件排序</p>
-<p>需求:按照age升序，再按照servlet成绩升序排序</p>
-<p>select * from student order by age asc,servlet asc;</p>
-<p><strong>分组查询(group by)</strong></p>
-<p>需求:查询每个地区有多少人</p>
-<p>SELECT address,COUNT(*) FROM student GROUP BY address;</p>
-<p>需求:统计男女的人数</p>
-<p>注意:where条件必须放在group by 分组之前</p>
-<p>SELECT gender,COUNT(*) FROM student WHERE gender IS NOT NULL AND gender&lt;&gt;’’ GROUP BY gender;</p>
-<p><strong>分组后筛选(having)</strong></p>
-<p>需求:查询哪些地区的人数是大于2个的地区</p>
-<p>查询哪些地区多少人 2)筛选人数大于2的地区</p>
-<p>注意:having使用在group by分组之后，对分组后的条件进行筛选</p>
-<p>SELECT address,COUNT(<em>) FROM student GROUP BY address HAVING COUNT(</em>)&gt;2;</p>
+		<h3 id="学习过基本Java-Web开发的人都已经了解了如何编写基本的Servlet，如何编写jsp及如何更新浏览器中显示的内容。但是我们之前自己编写的应用一般存在无条理性，对于一个小型的网站这样的编写没有任何问题，但是一但我们需要编写大型的web工程的话，我们现有的编写模式会造成web应用的可扩展性较差，而且一但出现问题不能准确的定位出问题出在哪里。"><a href="#学习过基本Java-Web开发的人都已经了解了如何编写基本的Servlet，如何编写jsp及如何更新浏览器中显示的内容。但是我们之前自己编写的应用一般存在无条理性，对于一个小型的网站这样的编写没有任何问题，但是一但我们需要编写大型的web工程的话，我们现有的编写模式会造成web应用的可扩展性较差，而且一但出现问题不能准确的定位出问题出在哪里。" class="headerlink" title="学习过基本Java Web开发的人都已经了解了如何编写基本的Servlet，如何编写jsp及如何更新浏览器中显示的内容。但是我们之前自己编写的应用一般存在无条理性，对于一个小型的网站这样的编写没有任何问题，但是一但我们需要编写大型的web工程的话，我们现有的编写模式会造成web应用的可扩展性较差，而且一但出现问题不能准确的定位出问题出在哪里。"></a>学习过基本Java Web开发的人都已经了解了如何编写基本的Servlet，如何编写jsp及如何更新浏览器中显示的内容。但是我们之前自己编写的应用一般存在无条理性，对于一个小型的网站这样的编写没有任何问题，但是一但我们需要编写大型的web工程的话，我们现有的编写模式会造成web应用的可扩展性较差，而且一但出现问题不能准确的定位出问题出在哪里。</h3><p>Java是一门应用设计模式比较广泛的语言。目前主流提出的23种设计模式均可在Java语言编写的程序中所应用。目前主流在Java Web应用中应用的最广泛的设计模式便是MVC模式，目前的主流Web框架大多也是基于MVC设计模式所编写的。</p>
+<p><a href="http://baike.baidu.com/item/MVC" target="_blank" rel="noopener">MVC</a>全名是Model View Controller，是模型(model)－视图(view)－控制器(controller)的缩写，一种软件设计典范，用一种业务逻辑、数据、界面显示分离的方法组织代码，将业务逻辑聚集到一个部件里面，在改进和个性化定制界面及用户交互的同时，不需要重新编写业务逻辑。MVC被独特的发展起来用于映射传统的输入、处理和输出功能在一个逻辑的图形化用户界面的结构中。</p>
+<p>Java Web应用程序的主要组件：</p>
+<p>MVC 是 Model-View-Control 的简称，即模型-视图-控制器。它是一个存在于服务器<br>表达层的模型，它将应用分开，改变应用之间的高度耦合。</p>
+<p><strong>Model**</strong>（模型）**是应用程序中用于处理应用程序数据逻辑的部分。通常模型对象负责在数据库中存取数据。</p>
+<p><strong>View**</strong>（视图）**是应用程序中处理数据显示的部分。通常视图是依据模型数据创建的。</p>
+<p><strong>Controller**</strong>（控制器）**是应用程序中处理用户交互的部分。通常控制器负责从视图读取数据，控制用户输入，并向模型发送数据。</p>
+<p>Java Web解决方案：</p>
+<p>（1）视图：jsp或者html页面，显示给用户的页面，供用户进行操作。其中可使用js，css等方法进行美化。</p>
+<p><strong>Index.html</strong></p>
+<body>
+
+<form action="login.do" method="post">      <!--所提交的表单，action为"login.do"，发出请求是post-->
+
+<p>账号:<input type="text" name="id"></p>      <!--所输入的"账号"在提交后的标示是"id"，下同 -->                                                   
+
+<p>密码:<input type="text" name="password">
+
+</p><p><input type="submit" value="登录"> </p>           <!--表单提交按钮，显示名称为"登录"-->
+
+</form>
+
+</body>
+
+<p>（2）控制器：在web.xml中把action同servlet连接起来，控制数据的传递。</p>
+<p><strong>Web.xml</strong></p>
+<servlet>
+
+<p><servlet-name>MyServlet</servlet-name><!--定义servlet的名称 --></p>
+<p><servlet-class>cc.MyMVC.servlet.MyServlet</servlet-class><!--对应servlet所属的文件名 --></p>
+</servlet>
+
+<p><servlet-mapping> <!-- 建立servlet与action之间的映射 --></servlet-mapping></p>
+<p><servlet-name>MyServlet</servlet-name>  <!-- 映射中servlet的名称，已定义 --></p>
+<p><url-pattern>/login.do</url-pattern>    <!-- 所对应的action --></p>
+
+
+
+
+
+
+<p><strong>Servlet.java</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">public void doPost(HttpServletRequest request, HttpServletResponse response)//处理post请求的方法</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">throws ServletException, IOException &#123;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">boolean b=false;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">MyPOJO myPOJO=new MyPOJO();//新建MyPOJO类的对象myPOJO</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">//根据标示名获取JSP文件中表单所包含的参数</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">String id=request.getParameter(&quot;id&quot;);</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">String password=request.getParameter(&quot;password&quot;);</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">b=myPOJO.login(id,password);//使用模型对账号和密码进行验证，返回一个boolean类型的对象</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">if(b)&#123;  //如果验证结果为真，跳转至登录成功页面</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">response.sendRedirect(&quot;LoginSuccessful.jsp&quot;);</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">else &#123;  //如果验证结果为假，跳转至登录失败页面</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">response.sendRedirect(&quot;LoginFailed.jsp&quot;);</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<p>（3）模型：建立数据模型，对数据库进行操作，将数据库中的数据同实际项目结合起来。</p>
+<p>public class UpdateDb {</p>
+<p>Connection conn;</p>
+<p>Statement stmt;</p>
+<p>ResultSet result;</p>
+<p>public void doUpdate(String sql) {</p>
+<p>​    GetConnection getedConnection = new GetConnection();</p>
+<p>​    conn = getedConnection.getConnection();</p>
+<p>​    try {</p>
+<p>​        stmt = conn.createStatement();</p>
+<p>​        stmt.executeQuery(sql);</p>
+<p>​        </p>
+<p>​      } catch (SQLException e) {</p>
+<p>​        e.printStackTrace();</p>
+<p>​     }</p>
+<p>}}</p>
+<p>Java Web 常用MVC框架：</p>
+<ol>
+<li>struts框架：</li>
+</ol>
+<p>Struts是最早的java开源框架之一，它是MVC设计模式的一个优秀实现。 Struts定义了通用的Controller（控制器），通过配置文件（通常是 Struts -config.xml）隔离Model（模型）和View（视图），以Action的概念以对用户请求进行了封装，使代码更加清晰易读。 Struts还提供了自动将请求的数据填充到对象中以及页面标签等简化编码的工具。 Struts能够开发大型Java Web项目。</p>
+<ol>
+<li>hibernate框架</li>
+</ol>
+<p>Hibernate是一个开放源代码的对象关系映射框架，它对JDBC进行了非常轻量级的对象封装，它将POJO与数据库表建立映射关系，是一个全自动的orm框架，hibernate可以自动生成SQL语句，自动执行，使得Java程序员可以随心所欲的使用对象编程思维来操纵数据库。 Hibernate可以应用在任何使用JDBC的场合，既可以在Java的客户端程序使用，也可以在Servlet/JSP的Web应用中使用，最具革命意义的是，Hibernate可以在应用EJB的<a href="http://baike.baidu.com/item/J2EE" target="_blank" rel="noopener">J2EE</a>架构中取代CMP，完成<a href="http://baike.baidu.com/item/数据持久化" target="_blank" rel="noopener">数据持久化</a>的重任。</p>
+<ol>
+<li>spring框架</li>
+</ol>
+<p>Spring的一个最大的目的就是使J2EE开发更加容易。同时，Spring之所以与Struts、Hibernate等单层框架不同，是因为Spring致力于提供一个以统一的、高效的方式构造整个应用，并且可以将单层框架以最佳的组合揉和在一起建立一个连贯的体系。可以说Spring是一个提供了更完善开发环境的一个框架，可以为POJO(Plain Old Java Object)对象提供企业级的服务。</p>
 	
 	</div>
 	
@@ -483,12 +451,8 @@
 	<span>
 		<a href="javascript: window.scrollTo(0, 0);">To Top</a>
 		
-			<a href="/2019/10/30/博客搭建/" title="博客搭建" rel="prev">
-				&laquo;Pre post
-			</a>
 		
-		
-			<a href="/2019/10/16/JAVA知识点汇总/" title="JAVA知识点汇总" rel="next">
+			<a href="/2019/11/24/jsp隐含对象/" title="jsp隐含对象" rel="next">
 				Next post&raquo;
 			</a>
 			
@@ -506,29 +470,6 @@
 <div class="relate-post">
 	
 		<ul>
-			
-					<li>
-						<div class="relate-post-text">
-							<a class="relate-post-title" href="/2019/11/24/MVC模式/" title="MVC模式">
-								MVC模式			
-							</a>
-							<p class="relate-post-date">
-								<i class="fa fa-calendar"></i>
-								十一月 24日, 2019				
-							</p>
-							<p class="relate-post-content">
-								学习过基本Java Web开发的人都已经了解了如何编写基本的Servlet，如何编写jsp及如何更新浏览器中显示的内容。但是我们之前自己编写的应用一般存在无条理性，对于一个小型的网站这样的编写没有任何问题，但是一但我们需要编写大型的w...
-							</p>
-						</div>
-
-						<div class="relate-post-cover">
-							<a href="/2019/11/24/MVC模式/" title="MVC模式">				
-								
-								<img class="lazy" src="/img/placeholder.jpg" data-src="/img/cart_cover.jpg" alt="MVC模式"/>
-							</a>
-						</div>
-					</li>											
-			
 			
 					<li>
 						<div class="relate-post-text">
@@ -650,6 +591,36 @@ Github个人技术博客搭建步骤
 							<a href="/2019/10/30/博客搭建/" title="博客搭建">				
 								
 								<img class="lazy" src="/img/placeholder.jpg" data-src="/img/cart_cover.jpg" alt="博客搭建"/>
+							</a>
+						</div>
+					</li>											
+			
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2019/10/17/Mysql知识点汇总/" title="Mysql知识点汇总">
+								Mysql知识点汇总			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								十月 17日, 2019				
+							</p>
+							<p class="relate-post-content">
+								Mysql数据库知识点1.管理数据库语句：使用数据库：
+use test;
+添加数据库：
+create database 数据库名;
+create database test;
+修改数据库：
+alter database 数据库名;
+...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="/2019/10/17/Mysql知识点汇总/" title="Mysql知识点汇总">				
+								
+								<img class="lazy" src="/img/placeholder.jpg" data-src="/img/cart_cover.jpg" alt="Mysql知识点汇总"/>
 							</a>
 						</div>
 					</li>											
