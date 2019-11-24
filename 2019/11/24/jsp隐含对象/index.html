@@ -13,7 +13,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
   <title>
     
-      Mysql知识点汇总 | Hexo
+      jsp隐含对象 | Hexo
     
   </title>
   <meta name="author" content="John Doe">
@@ -160,7 +160,7 @@
 	<!-- Page title -->
 	<p>
 		
-			Current post&nbsp;:&nbsp;《Mysql知识点汇总》
+			Current post&nbsp;:&nbsp;《jsp隐含对象》
 		
 	</p>
 
@@ -277,8 +277,8 @@
 	<div class="article-title">
 		<i class="fa fa-paper-plane-o" aria-hidden="true"></i>
 		
-	<a href="/2019/10/17/Mysql知识点汇总/" itemprop="url">
-		Mysql知识点汇总
+	<a href="/2019/11/24/jsp隐含对象/" itemprop="url">
+		jsp隐含对象
 	</a>
 
 	</div>
@@ -291,9 +291,9 @@
 
 	Posted on
 
-	<a href="/2019/10/17/Mysql知识点汇总/" itemprop="url">
-		<time datetime="2019-10-17T13:30:15.000Z" itemprop="datePublished">
-	  		2019-10-17
+	<a href="/2019/11/24/jsp隐含对象/" itemprop="url">
+		<time datetime="2019-11-24T08:24:14.000Z" itemprop="datePublished">
+	  		2019-11-24
 	  </time>
 	</a>
 	&nbsp;
@@ -309,9 +309,9 @@
 
 	Updated on
 
-	<a href="/2019/10/17/Mysql知识点汇总/" itemprop="url">
-		<time datetime="2019-10-17T13:30:15.000Z" itemprop="dateUpdated">
-	  		2019-10-17
+	<a href="/2019/11/24/jsp隐含对象/" itemprop="url">
+		<time datetime="2019-11-24T08:24:14.000Z" itemprop="dateUpdated">
+	  		2019-11-24
 	  </time>
 	</a> 
 
@@ -330,141 +330,9 @@
 	</div>
 
 	<div class="article-content" id="article-content">
-		<h1 id="Mysql数据库知识点"><a href="#Mysql数据库知识点" class="headerlink" title="Mysql数据库知识点"></a>Mysql数据库知识点</h1><h2 id="1-管理数据库语句："><a href="#1-管理数据库语句：" class="headerlink" title="1.管理数据库语句："></a>1.管理数据库语句：</h2><p><strong>使用数据库：</strong></p>
-<p>use test;</p>
-<p><strong>添加数据库：</strong></p>
-<p>create database 数据库名;</p>
-<p>create database test;</p>
-<p><strong>修改数据库：</strong></p>
-<p>alter database 数据库名;</p>
-<p>alter database test;</p>
-<p><strong>删除数据库：</strong></p>
-<p>drop database 数据库名;</p>
-<p>drop database test;</p>
-<p><strong>查看所有数据库：</strong></p>
-<p>show databases;</p>
-<h2 id="2-管理表语句："><a href="#2-管理表语句：" class="headerlink" title="2.管理表语句："></a><strong>2.管理表语句：</strong></h2><p><strong>添加数据表：</strong></p>
-<p>create table 表名(</p>
-<p>　　列名 数据类型 数据约束,</p>
-<p>　　列名 数据类型 数据约束</p>
-<p>);</p>
-<p>create table student(</p>
-<p>　　name varchar(20) not null,</p>
-<p>　　age int(4)</p>
-<p>)</p>
-<p><strong>修改数据表：</strong></p>
-<p>alter table 表名;</p>
-<p>1)在表中增加新字段</p>
-<p>alter table student add colunm name varchar(20);</p>
-<p>2)删除表中的字段</p>
-<p>alter table student drop name;</p>
-<p>3)修改表中字段的类型</p>
-<p>alter table student modify name varchar(10);</p>
-<p><strong>删除数据表：</strong></p>
-<p>drop table 表名;</p>
-<p>drop table student;</p>
-<p><strong>查看所有表：</strong></p>
-<p>show tables;</p>
-<h2 id="3-管理数据语句："><a href="#3-管理数据语句：" class="headerlink" title="3.管理数据语句："></a>3.管理数据语句：</h2><p><strong>插入数据：</strong></p>
-<p>insert into 表名 (列1,列2…)  values (值1,值2…);</p>
-<p>insert into student (name,age) values (‘张三’,20);</p>
-<p><strong>更新数据：</strong></p>
-<p>update 表名 set 列=修改值 where 条件;</p>
-<p>update student set  name=’李四’ where name=’张三’;</p>
-<p><strong>删除数据：</strong></p>
-<p>delete from 表名 where 条件;</p>
-<p>delete from student where name=’李四’;</p>
-<p><strong>查询数据：</strong></p>
-<p>selete *  from 表名 where 条件;</p>
-<p>selete * from student where name=’张三’;</p>
-<h2 id="4-各种查询语句："><a href="#4-各种查询语句：" class="headerlink" title="4.各种查询语句："></a><strong>4.各种查询语句：</strong></h2><p><strong>查询时指定别名：</strong></p>
-<p>1) selete id AS ‘编号’,name AS ‘姓名’ from student;</p>
-<p>2) selete id ‘编号’,name ‘姓名’ from student;(AS可以省略)</p>
-<p><strong>查询时合并列：</strong></p>
-<p>需求:查询每个学生的总分</p>
-<p>selete name AS ‘姓名’,(servlet+mysql) AS ‘总成绩’ from student;</p>
-<p>注意:合并列的字段必须是数值类型的字段</p>
-<p><strong>查询时去除重复(distinct)：</strong></p>
-<p>需求:查询有哪些地区的学生</p>
-<p>selete DISTINCT address from student;</p>
-<p>另一种语法</p>
-<p>selete DISTINCT(address) from student;</p>
-<h3 id="条件查询"><a href="#条件查询" class="headerlink" title="条件查询"></a><strong>条件查询</strong></h3><p><strong>逻辑条件: and  or</strong></p>
-<p>需求:查询学生的id为1，且姓名为张三的学生</p>
-<p>selete * from student where id=1 and name=’张三’;(交集)</p>
-<p>需求:查询学生的id为2，或姓名为张三的学生</p>
-<p>selete * from student where id=2 or name=’张三’;(并集)</p>
-<p><strong>比较条件: &gt;  &lt;  &gt;=  &lt;=  =  &lt;&gt;  (between and–在…之间 包前包后)</strong></p>
-<p>需求:查询servlet分数大于80分的学生</p>
-<p>selete * from student where servlet&gt;80;</p>
-<p>需求:查询mysql分数小于或等于85分的学生</p>
-<p>selete * from student where mysql&lt;=85;</p>
-<p>需求:查询servlet分数大于或等于80分，且小于或等于85分的学生</p>
-<p>selete * from student where servlet&gt;=80 AND servlet&lt;=85;</p>
-<p>代替上面语句的语法</p>
-<p>selete * from student where servlet BETWEEN 80 AND 85;</p>
-<p>需求:查询年龄不等于30的学生</p>
-<p>selete * from student where age&lt;&gt;30;</p>
-<p><strong>判空条件: is null,   is not null,   =**</strong>’’<strong><strong>,   &lt;&gt;</strong></strong>’’**</p>
-<p>Null:表示没有数据</p>
-<p>空字符:表示有数据</p>
-<p>需求:查询没有性别数据的学生(数据‘男’或‘女’)</p>
-<p>selete* from student where gender IS NULL OR gender=’’;</p>
-<p>需求:查询有性别数据的学生</p>
-<p>selete * from student where gender IS NOT NULL AND gender&lt;&gt;’’;</p>
-<p><strong>模糊条件: like</strong></p>
-<p>模糊替代符号:</p>
-<p>%:替代任意个字符</p>
-<p>_:替代一个字符</p>
-<p>需求:查询姓“李”的学生</p>
-<p>SELECT * FROM student WHERE NAME LIKE ‘李%’;</p>
-<p>需求:查询姓名中包含‘四’字的学生</p>
-<p>SELECT * FROM student WHERE NAME LIKE ‘%四%’;</p>
-<p>需求:查询姓‘李’，全名只有两个字的学生</p>
-<p>SELECT * FROM student WHERE NAME LIKE ‘李_’;</p>
-<p><strong>聚合函数查询(用于统计结果)</strong></p>
-<p>Max()取最大值  min()取最小值  avg()取平均值  count()统计标的记录数量 sum()求和</p>
-<p>需求:查询servlet的最高分</p>
-<p>SELECT MAX(servlet) FROM student;</p>
-<p>需求:查询mysql的最低分</p>
-<p>SELECT MIN(mysql) FROM student;</p>
-<p>需求:查询servlet的平均分</p>
-<p>SELECT AVG(servlet) FROM student;</p>
-<p>需求:查询当前有几个学生</p>
-<p>SELECT COUNT(*) FROM student;</p>
-<p>需求:查询servlet成绩的总和</p>
-<p>SELETE SUM(servlet) from student;</p>
-<p><strong>分页查询(limit)</strong></p>
-<p>Limit起始行数，查询的行数</p>
-<p>起始行数从0开始</p>
-<p>需求:查询第1,2条数据</p>
-<p>SELECT * FROM student LIMIT 0,2;</p>
-<p>分页查询需知道:当前页码，每页显示条数</p>
-<p>结论分页查询当前页数据:select * from student limit (当前页码-1)*每页显示条数，每页显示条数;</p>
-<p>需求:学生共20条数据，每页显示5条，共4页</p>
-<p>查询第3页(第11到15条)的学生数据:select * from student limit 10,5;</p>
-<p><strong>查询后排序(order by)</strong></p>
-<p>DESC:降序。数值从大到小，字母z-a</p>
-<p>ASC:升序。数值从小到大，字母a-z</p>
-<p>默认情况下，按照插入的顺序排序</p>
-<p>需求:按照id的升序排序</p>
-<p>select * from student order by id asc;</p>
-<p>需求:按照servlet成绩降序排序</p>
-<p>select * from student order by servlet desc;</p>
-<p>多个排序条件的情况:先按照前面的条件排序，当出现重复记录，再按照后面的条件排序</p>
-<p>需求:按照age升序，再按照servlet成绩升序排序</p>
-<p>select * from student order by age asc,servlet asc;</p>
-<p><strong>分组查询(group by)</strong></p>
-<p>需求:查询每个地区有多少人</p>
-<p>SELECT address,COUNT(*) FROM student GROUP BY address;</p>
-<p>需求:统计男女的人数</p>
-<p>注意:where条件必须放在group by 分组之前</p>
-<p>SELECT gender,COUNT(*) FROM student WHERE gender IS NOT NULL AND gender&lt;&gt;’’ GROUP BY gender;</p>
-<p><strong>分组后筛选(having)</strong></p>
-<p>需求:查询哪些地区的人数是大于2个的地区</p>
-<p>查询哪些地区多少人 2)筛选人数大于2的地区</p>
-<p>注意:having使用在group by分组之后，对分组后的条件进行筛选</p>
-<p>SELECT address,COUNT(<em>) FROM student GROUP BY address HAVING COUNT(</em>)&gt;2;</p>
+		<h3 id="一、隐含对象"><a href="#一、隐含对象" class="headerlink" title="一、隐含对象"></a>一、隐含对象</h3><p>1.什么是隐含对象(9个)？<br>————JSP中的隐含对象:不用我们手工去创建的对象<br>类型                    对象名            功能</p>
+<hr>
+<p>JspWriter              out              往浏览器写内容<br>HttpServletRequest     request          Http请求对象.<br>HttpServletResponse    response         Http响应对象<br>PageContext            pageContext      JSP的页面上下文<br>HttpSession            session          会话对象<br>ServletContext         application      应用上下文<br>ServletConfig          config           JSP的ServletConfig<br>Object                 page             页面实现类的对象(例如：this)<br>Exception              exception        含有指令&lt;%@page isErrorPage=”true”%&gt;<br>2.范围对象<br>其中，有4个是范围对象： pageContext,request,session,application<br>对应<a href="jsp:useBean/" target="_blank" rel="noopener">jsp:useBean/</a>指令的scope分别是：page,reqeust,session,application<br>也就是说，指定不同scope的bean对象(Java Bean)会被绑定到不同的范围对象中<br>// 选择范围对象的原则：作用域的范围越小越好；因为作用域小的生命周期短，有利于性能提高。<br>例如：&lt;jsp:useBean id=”stu” class=”vo.Student” scope=”page”/&gt;<br>表示stu对象被绑定到javax.servlet.jsp.PageContext对象(pageContext)中，其等价的代码<br>&lt;%    Student stu = pageContext.getAttribute(“stu”);<br>if(stu==null) {<br>stu=new Student();<br>pageContext.setAttribute(“stu”,stu);<br>}%&gt;<br>1)pageContext对象：<br>每一个jsp页面对应着一个pageContext。一般地，在实际应用中，主要是使用它来存取属性。<br>另外，pageContext对象能够存取其他隐含对象。<br>a.pageContext对象存取其他隐含对象属性的方法，此时需要指定范围的参数。<br>Object getAttribute(String name, int scope)<br>Enumeration getAttributeNamesInScope(int scope)<br>void removeAttribute(String name, int scope)<br>void setAttribute(String name, Object value, int scope)<br>其中，范围参数有四个，分别代表四种范围：<br>PAGE_SCOPE、REQUEST_SCOPE、SESSION_SCOPE、APPLICATION_SCOPE<br>b.PageContext对象取得其他隐含对象的方法<br>Exception getException()           回传目前网页的异常，不过此网页要为error page，<br>JspWriter getOut()                 回传目前网页的输出流，例如：out<br>Object getPage()                   回传目前网页的Servlet 实体(instance)，例如：page<br>ServletRequest getRequest()        回传目前网页的请求，例如：request<br>ServletResponse getResponse()      回传目前网页的响应，例如：response<br>ServletConfig getServletConfig()   回传目前此网页的ServletConfig 对象，例如：config<br>ServletContext getServletContext() 回传目前此网页的执行环境(context)，例如：application<br>HttpSession getSession()           回传和目前网页有联系的会话(session)，例如：session<br>c.PageContext对象提供取得属性的方法<br>Object getAttribute(String name, int scope)    回传name 属性(范围为scope；类型为Object)<br>Enumeration getAttributeNamesInScope(int scope)<br>回传所有属性范围为scope 的属性名称，回传类型为Enumeration<br>int getAttributesScope(String name)回传属性名称为name 的属性范围<br>void removeAttribute(String name)  移除属性名称为name 的属性对象<br>void removeAttribute(String name, int scope)   移除属性名称为name，范围为scope 的属性对象<br>void setAttribute(String name, Object value, int scope)<br>指定属性对象的名称为name、值为value、范围为scope<br>Object findAttribute(String name)  寻找在所有范围中属性名称为name 的属性对象<br>2)request 对象<br>request 对象包含所有请求的信息，<br>如：请求的来源、标头、cookies和请求相关的参数值等等。<br>request 对象实现javax.servlet.http.HttpServletRequest接口的，<br>所提供的方法可以将它分为四大类：<br>(1)储存和取得属性方法；<br>void setAttribute(String name, Object value)      设定name属性的值为value<br>Enumeration getAttributeNamesInScope(int scope)   取得所有scope 范围的属性<br>Object getAttribute(String name)   取得name 属性的值<br>void removeAttribute(String name)  移除name 属性的值<br>(2)取得请求参数的方法<br>String getParameter(String name)   取得name 的参数值<br>Enumeration getParameterNames()    取得所有的参数名称<br>String [] getParameterValues(String name)    取得所有name 的参数值<br>Map getParameterMap()              取得一个要求参数的Map<br>(3)能够取得请求HTTP 标头的方法<br>String getHeader(String name)      取得name 的标头<br>Enumeration getHeaderNames()       取得所有的标头名称<br>Enumeration getHeaders(String name) 取得所有name 的标头<br>int getIntHeader(String name)      取得整数类型name 的标头<br>long getDateHeader(String name)    取得日期类型name 的标头<br>Cookie [] getCookies()             取得与请求有关的cookies<br>(4)其他的方法<br>String getContextPath()            取得Context 路径(即站台名称)<br>String getMethod()                 取得HTTP 的方法(GET、POST)<br>String getProtocol()               取得使用的协议 (HTTP/1.1、HTTP/1.0 )<br>String getQueryString()            取得请求的参数字符串，不过，HTTP的方法必须为GET<br>String getRequestedSessionId()     取得用户端的Session ID<br>String getRequestURI()             取得请求的URL，但是不包括请求的参数字符串<br>String getRemoteAddr()             取得用户的IP 地址<br>String getRemoteHost()             取得用户的主机名称<br>int getRemotePort()                取得用户的主机端口<br>String getRemoteUser()             取得用户的名称<br>void getCharacterEncoding(String encoding)    设定编码格式，用来解决窗体传递中文的问题<br>3)session 对象<br>session对象表示目前个别用户的会话(session)状况。<br>session对象实现javax.servlet.http.HttpSession接口，HttpSession接口所提供的方法<br>long getCreationTime()             取得session产生的时间，单位是毫秒<br>String getId()                     取得session 的ID<br>long getLastAccessedTime()         取得用户最后通过这个session送出请求的时间<br>long getMaxInactiveInterval()      取得最大session不活动的时间，若超过这时间，session 将会失效<br>void invalidate()                  取消session 对象，并将对象存放的内容完全抛弃<br>boolean isNew()                    判断session 是否为”新”的会话<br>void setMaxInactiveInterval(int interval)<br>设定最大session不活动的时间，若超过这时间，session 将会失效<br>4)application对象<br>application对象最常被使用在存取环境的信息。<br>因为环境的信息通常都储存在ServletContext中，所以常利用application对象来存取ServletContext中的信息。<br>application 对象实现javax.servlet.ServletContext 接口，ServletContext接口容器所提供的方法<br>int getMajorVersion()              取得Container主要的Servlet API版本<br>int getMinorVersion()              取得Container次要的Servlet API 版本<br>String getServerInfo()             取得Container的名称和版本<br>String getMimeType(String file)    取得指定文件的MIME 类型<br>ServletContext getContext(String uripath)        取得指定Local URL的Application context<br>String getRealPath(String path)    取得本地端path的绝对路径<br>void log(String message)           将信息写入log文件中<br>void log(String message, Throwable throwable)    将stack trace 所产生的异常信息写入log文件中<br>3.其他对象：<br>1)page 对象<br>page对象代表JSP本身，更准确地说page对象是当前页面转换后的Servlet类的实例。<br>从转换后的Servlet类的代码中，可以看到这种关系： Object page = this;<br>在JSP页面中，很少使用page对象。<br>2)response 对象<br>response 对象主要将JSP 处理数据后的结果传回到客户端。<br>response 对象是实现javax.servlet.http.HttpServletResponse 接口。response对象所提供的方法。<br>a.设定表头的方法<br>void addCookie(Cookie cookie)                新增cookie<br>void addDateHeader(String name, long date)   新增long类型的值到name标头<br>void addHeader(String name, String value)    新增String类型的值到name标头<br>void addIntHeader(String name, int value)    新增int类型的值到name标头<br>void setDateHeader(String name, long date)   指定long类型的值到name标头<br>void setHeader(String name, String value)    指定String类型的值到name标头<br>void setIntHeader(String name, int value)    指定int类型的值到name标头<br>b.设定响应状态码的方法<br>void sendError(int sc)                       传送状态码(status code)<br>void sendError(int sc, String msg)           传送状态码和错误信息<br>void setStatus(int sc)                       设定状态码<br>c.用来URL 重写(rewriting)的方法<br>String encodeRedirectURL(String url)         对使用sendRedirect()方法的URL予以编码<br>3)out 对象<br>out对象的类型是javax.servlet.jsp.JspWriter，该类从java.io.Writer类派生，以字符流的形式输出数据。<br>out对象实际上是PrintWriter对象的带缓冲的版本(在out对象内部使用PrintWriter对象来输出数据)，<br>可以通过page指令的buffer属性来调整缓冲区的大小，默认的缓冲区是8kb。<br>out 对象能把结果输出到网页上。<br>out主要是用来控制管理输出的缓冲区(buffer)和输出流(output stream)。<br>void clear( )               清除输出缓冲区的内容<br>void clearBuffer( )         清除输出缓冲区的内容<br>void close( )               关闭输出流，清除所有的内容<br>int getBufferSize( )        取得目前缓冲区的大小(KB)<br>int getRemaining( )         取得目前使用后还剩下的缓冲区大小(KB)<br>boolean isAutoFlush( )      回传true表示缓冲区满时会自动清除；false表示不会自动清除并且产生异常处理<br>4)exception对象<br>若要使用exception 对象时，必须在page 指令中设定：&lt;%@ page isErrorPage=”true” %&gt;才能使用。<br>exception提供的三个方法：<br>getMessage()<br>getLocalizedMessage()<br>printStackTrace(new java.io.PrintWriter(out))<br>5)config 对象<br>config 对象里存放着一些Servlet 初始的数据结构。<br>config 对象实现于javax.servlet.ServletConfig 接口，它共有下列四种方法：<br>public String getInitParameter(name)<br>public java.util.Enumeration getInitParameterNames( )<br>public ServletContext getServletContext()<br>public Sring getServletName()<br>例子：<br>1.范围对象比较<br>&lt;% pageContext 或request 或session 或application.setAttribute(“name”, “maxwell”);<br>pageContext.setAttribute(“sex”, “m”);<br>%&gt;<br>2.输出对象out<br>&lt;%out.println(“Hello JSP!”);%&gt;<br>&lt;%System.out.println(“Hello JSP!”);%&gt;<br>getBufferSize() //tomcat default:12k<br>getRemaining()<br>flush()<br>clearBuffer()<br>3.request对象<br>request:<br>getProtocol()<br>getMethod()<br>getHeader(“User-Agent”)<br>getCookies()<br>getRequestURI()<br>getRequestURL()<br>getContextPath()<br>getServletPath()<br>getPathInfo()<br>getQueryString()<br>isRequestedSessionIdFromCookie()<br>isRequestedSessionIdFromURL()<br>isRequestedSessionIdValid()<br>getLocalPort(),getRemotePort()<br>getRequestDispatcher(),setCharacterEncoding(),getInputStream()<br>4.session对象<br>session:<br>getId()<br>isNew()<br>invalidate()<br>setMaxInactiveInterval(10)<br>5.响应对象<br>response:<br>sendRedirect(“third.jsp”)<br>sendError(404, “400 Error!”)<br>6.应用对象<br>application:<br>log(“some body visit our website…”);<br>getMajorVersion()<br>getMinorVersion()<br>getServerInfo()<br>getRequestDispatcher(),getResourceAsStream(),getInitParameter()<br>pageContext:<br>getAttribute(“name”)<br>config:<br>getInitParameter(“classNo”)<br>getServletName()<br>page:<br>getClass()</p>
 	
 	</div>
 	
@@ -483,12 +351,8 @@
 	<span>
 		<a href="javascript: window.scrollTo(0, 0);">To Top</a>
 		
-			<a href="/2019/10/30/博客搭建/" title="博客搭建" rel="prev">
-				&laquo;Pre post
-			</a>
 		
-		
-			<a href="/2019/10/16/JAVA知识点汇总/" title="JAVA知识点汇总" rel="next">
+			<a href="/2019/11/24/Java-Bean/" title="Java Bean" rel="next">
 				Next post&raquo;
 			</a>
 			
@@ -506,31 +370,6 @@
 <div class="relate-post">
 	
 		<ul>
-			
-					<li>
-						<div class="relate-post-text">
-							<a class="relate-post-title" href="/2019/11/24/jsp隐含对象/" title="jsp隐含对象">
-								jsp隐含对象			
-							</a>
-							<p class="relate-post-date">
-								<i class="fa fa-calendar"></i>
-								十一月 24日, 2019				
-							</p>
-							<p class="relate-post-content">
-								一、隐含对象1.什么是隐含对象(9个)？————JSP中的隐含对象:不用我们手工去创建的对象类型                    对象名            功能
-
-JspWriter              out    ...
-							</p>
-						</div>
-
-						<div class="relate-post-cover">
-							<a href="/2019/11/24/jsp隐含对象/" title="jsp隐含对象">				
-								
-								<img class="lazy" src="/img/placeholder.jpg" data-src="/img/cart_cover.jpg" alt="jsp隐含对象"/>
-							</a>
-						</div>
-					</li>											
-			
 			
 					<li>
 						<div class="relate-post-text">
@@ -627,6 +466,36 @@ Github个人技术博客搭建步骤
 							<a href="/2019/10/30/博客搭建/" title="博客搭建">				
 								
 								<img class="lazy" src="/img/placeholder.jpg" data-src="/img/cart_cover.jpg" alt="博客搭建"/>
+							</a>
+						</div>
+					</li>											
+			
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2019/10/17/Mysql知识点汇总/" title="Mysql知识点汇总">
+								Mysql知识点汇总			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								十月 17日, 2019				
+							</p>
+							<p class="relate-post-content">
+								Mysql数据库知识点1.管理数据库语句：使用数据库：
+use test;
+添加数据库：
+create database 数据库名;
+create database test;
+修改数据库：
+alter database 数据库名;
+...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="/2019/10/17/Mysql知识点汇总/" title="Mysql知识点汇总">				
+								
+								<img class="lazy" src="/img/placeholder.jpg" data-src="/img/cart_cover.jpg" alt="Mysql知识点汇总"/>
 							</a>
 						</div>
 					</li>											
