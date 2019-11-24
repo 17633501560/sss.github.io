@@ -258,6 +258,18 @@
 		插件作者：KELEN
 		插件来源: https://github.com/KELEN/katelog
 -->
+
+	
+		<div class="layout-toc">
+			<div id="layout-toc">
+				<div class="k-catelog-list" id="catelog-list" data-title="文章目录"></div>
+			</div>
+		</div>
+
+		
+		<script src="/plugin/toc/katelog.min.js"></script>
+
+		
 	 
 
 <div class="layout-post">
@@ -280,7 +292,7 @@
 	Posted on
 
 	<a href="/2019/11/24/jsp-el用法/" itemprop="url">
-		<time datetime="2019-11-24T09:00:46.000Z" itemprop="datePublished">
+		<time datetime="2019-11-24T09:21:50.000Z" itemprop="datePublished">
 	  		2019-11-24
 	  </time>
 	</a>
@@ -298,7 +310,7 @@
 	Updated on
 
 	<a href="/2019/11/24/jsp-el用法/" itemprop="url">
-		<time datetime="2019-11-24T09:00:46.000Z" itemprop="dateUpdated">
+		<time datetime="2019-11-24T09:21:50.000Z" itemprop="dateUpdated">
 	  		2019-11-24
 	  </time>
 	</a> 
@@ -318,7 +330,213 @@
 	</div>
 
 	<div class="article-content" id="article-content">
-			
+		<h3 id="EL-Expression-Language-表达式并不是通用的程序设计语言，仅是一种数据访问语言，可以在JSP中方便地访问Java数据。"><a href="#EL-Expression-Language-表达式并不是通用的程序设计语言，仅是一种数据访问语言，可以在JSP中方便地访问Java数据。" class="headerlink" title="EL(Expression Language)表达式并不是通用的程序设计语言，仅是一种数据访问语言，可以在JSP中方便地访问Java数据。"></a>EL(Expression Language)表达式并不是通用的程序设计语言，仅是一种数据访问语言，可以在JSP中方便地访问Java数据。</h3><figure class="highlight jsp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">示例：$&#123;expression&#125;</span><br></pre></td></tr></table></figure>
+
+<p>EL隐式对象列表</p>
+<table>
+<thead>
+<tr>
+<th><strong>类别</strong></th>
+<th><strong>标识符</strong></th>
+<th><strong>描述</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>JSP</td>
+<td>pageContext</td>
+<td>当前页面</td>
+</tr>
+<tr>
+<td>作用域</td>
+<td>pageScope</td>
+<td>页面作用域</td>
+</tr>
+<tr>
+<td></td>
+<td>requestScope</td>
+<td>请求作用域</td>
+</tr>
+<tr>
+<td></td>
+<td>sessionScope</td>
+<td>会话作用域</td>
+</tr>
+<tr>
+<td></td>
+<td>applicationScope</td>
+<td>应用程序作用域</td>
+</tr>
+<tr>
+<td>请求参数</td>
+<td>param</td>
+<td>存储请求参数</td>
+</tr>
+<tr>
+<td></td>
+<td>paramValues</td>
+<td>将请求参数的所有值作为 String 数组存储</td>
+</tr>
+<tr>
+<td>请求头</td>
+<td>header</td>
+<td>按名称存储请求头</td>
+</tr>
+<tr>
+<td></td>
+<td>headerValues</td>
+<td>将请求头的所有值作为 String 数组存储</td>
+</tr>
+<tr>
+<td>Cookie</td>
+<td>cookie</td>
+<td>按名称存储请求附带的   cookie</td>
+</tr>
+<tr>
+<td>初始化参数</td>
+<td>initParam</td>
+<td>按名称存储   Web   应用程序上下文初始化参数</td>
+</tr>
+</tbody></table>
+<h2 id="EL数据访问"><a href="#EL数据访问" class="headerlink" title="EL数据访问"></a>EL数据访问</h2><h3 id="作用域对象"><a href="#作用域对象" class="headerlink" title="作用域对象"></a>作用域对象</h3><p>applicationScope：用来取得application范围属性值。</p>
+<p>sessionScope：用来取得session范围属性值。</p>
+<p>requestScope：用来取得request范围属性值。</p>
+<p>pageScope：用来取得page范围属性值。</p>
+<p>这些隐式对象对应于JSP中的pageContext，request，session，application，只用来读取属性值。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//创建对象，分别放进不同作用域</span></span><br><span class="line">User myUser = <span class="keyword">new</span> User(<span class="string">"0001"</span>, <span class="string">"张三"</span>, <span class="number">20</span>);</span><br><span class="line">pageContext.setAttribute(<span class="string">"currentUser"</span>, myUser);</span><br><span class="line">request.setAttribute(<span class="string">"currentUser"</span>, myUser);</span><br><span class="line">session.setAttribute(<span class="string">"currentUser"</span>, myUser);</span><br><span class="line">application.setAttribute(<span class="string">"currentUser"</span>, myUser);</span><br><span class="line"></span><br><span class="line"><span class="comment">//读取不同范围的值</span></span><br><span class="line">page范围:$&#123;pageScope.currentUser.name&#125;&lt;br /&gt;</span><br><span class="line">request范围:$&#123;requestScope.currentUser.name&#125;&lt;br /&gt;</span><br><span class="line">session范围:$&#123;sessionScope.currentUser.name&#125;&lt;br /&gt;</span><br><span class="line">application范围:$&#123;applicationScope.currentUser.name&#125;&lt;br /&gt;</span><br><span class="line">不指定范围:$&#123;currentUser.name&#125;</span><br><span class="line">如果不指定范围，默认会从page范围内找，如果找不到，再依次到request、session、application范围中找。如果没有找到就返回<span class="keyword">null</span>。</span><br></pre></td></tr></table></figure>
+
+<p>读取集合或map</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//存入集合</span></span><br><span class="line">ArrayList&lt;User&gt; lists = <span class="keyword">new</span> ArrayList&lt;User&gt;();</span><br><span class="line">lists.add(<span class="keyword">new</span> User(<span class="string">"0001"</span>, <span class="string">"张三"</span>, <span class="number">20</span>));</span><br><span class="line">lists.add(<span class="keyword">new</span> User(<span class="string">"0002"</span>,<span class="string">"李四"</span>,<span class="number">30</span>));</span><br><span class="line">session.setAttribute(<span class="string">"userList"</span>, lists);   </span><br><span class="line"></span><br><span class="line"><span class="comment">//存入map</span></span><br><span class="line">Map&lt;String,User&gt; <span class="built_in">map</span> = <span class="keyword">new</span> HashMap&lt;String,User&gt;();</span><br><span class="line"><span class="built_in">map</span>.put(<span class="string">"user1"</span>, <span class="keyword">new</span> User(<span class="string">"0001"</span>,<span class="string">"张三"</span>,<span class="number">20</span>));</span><br><span class="line">session.setAttribute(<span class="string">"currentUser"</span>, <span class="built_in">map</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 读取集合</span></span><br><span class="line">$&#123;userList[<span class="number">0</span>].name&#125;&lt;br /&gt;</span><br><span class="line">$&#123;userList[<span class="number">1</span>].name&#125;&lt;br /&gt;</span><br><span class="line">    </span><br><span class="line"><span class="comment">// 读取map</span></span><br><span class="line">$&#123;currentUser.user1.name&#125;&lt;br /&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="请求参数对象"><a href="#请求参数对象" class="headerlink" title="请求参数对象"></a>请求参数对象</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//在EL之前使用如下代码取得请求参数</span></span><br><span class="line">request.getParameter(name);</span><br><span class="line">request.getParameterValues(name);</span><br><span class="line"></span><br><span class="line"><span class="comment">//在EL中使用如下隐式对象取得请求参数</span></span><br><span class="line">param：接收的参数只有一个值。</span><br><span class="line">paramValues：接受的参数有多个值。</span><br></pre></td></tr></table></figure>
+
+<p>示例：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">method</span>=<span class="string">"post"</span> <span class="attr">action</span>=<span class="string">"buyMessage.jsp"</span>&gt;</span>    </span><br><span class="line">      <span class="tag">&lt;<span class="name">p</span>&gt;</span></span><br><span class="line">         请选择您要购买的商品：</span><br><span class="line">      <span class="tag">&lt;/<span class="name">p</span>&gt;</span> </span><br><span class="line">      <span class="tag">&lt;<span class="name">p</span>&gt;</span></span><br><span class="line">         <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"checkbox"</span> <span class="attr">name</span>=<span class="string">"goods"</span> <span class="attr">value</span>=<span class="string">"手机"</span>/&gt;</span>手机</span><br><span class="line">      <span class="tag">&lt;/<span class="name">p</span>&gt;</span>   </span><br><span class="line">      <span class="tag">&lt;<span class="name">p</span>&gt;</span></span><br><span class="line">         <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"checkbox"</span> <span class="attr">name</span>=<span class="string">"goods"</span> <span class="attr">value</span>=<span class="string">"电脑"</span>/&gt;</span>电脑</span><br><span class="line">      <span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">p</span>&gt;</span></span><br><span class="line">         <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"checkbox"</span> <span class="attr">name</span>=<span class="string">"goods"</span> <span class="attr">value</span>=<span class="string">"空调"</span>/&gt;</span>空调</span><br><span class="line">      <span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">p</span>&gt;</span></span><br><span class="line">         请输入收货地址：<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">name</span>=<span class="string">"address"</span> /&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"submit"</span> <span class="attr">value</span>=<span class="string">"确定"</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!--获取前一页面请求中的值 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">%</span></span></span><br><span class="line"><span class="tag">     <span class="attr">request.setCharacterEncoding</span>("<span class="attr">utf-8</span>");</span></span><br><span class="line"><span class="tag">  %&gt;</span></span><br><span class="line">    您选择的商品是:</span><br><span class="line">  <span class="tag">&lt;<span class="name">p</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">  $&#123;paramValues.goods[0]&#125;<span class="tag">&lt;<span class="name">p</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">  $&#123;paramValues.goods[1]&#125;<span class="tag">&lt;<span class="name">p</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">  $&#123;paramValues.goods[2]&#125;<span class="tag">&lt;<span class="name">p</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">   您的收货地址是：</span><br><span class="line">  <span class="tag">&lt;<span class="name">p</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">  $&#123;param.address&#125;</span><br><span class="line">  <span class="tag">&lt;<span class="name">p</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"button"</span> <span class="attr">value</span>=<span class="string">"下一步"</span> /&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"button"</span> <span class="attr">value</span>=<span class="string">"返回上一步"</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="Cookie对象"><a href="#Cookie对象" class="headerlink" title="Cookie对象"></a>Cookie对象</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 颁发Cookie</span></span><br><span class="line">Cookie c = <span class="keyword">new</span> Cookie(<span class="string">"username"</span>, <span class="string">"admin"</span>);</span><br><span class="line">response.addCookie(c);</span><br><span class="line"><span class="comment">// 获取cookie</span></span><br><span class="line">$&#123;cookie.username.value &#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="EL运算符"><a href="#EL运算符" class="headerlink" title="EL运算符"></a>EL运算符</h2><h3 id="算术运算符"><a href="#算术运算符" class="headerlink" title="算术运算符"></a>算术运算符</h3><table>
+<thead>
+<tr>
+<th><strong>算术运算符</strong></th>
+<th><strong>说明</strong></th>
+<th><strong>示例</strong></th>
+<th><strong>结果</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>+</td>
+<td>加</td>
+<td>${1   + 1}</td>
+<td>2</td>
+</tr>
+<tr>
+<td>-</td>
+<td>减</td>
+<td>${1   - 1}</td>
+<td>0</td>
+</tr>
+<tr>
+<td>*</td>
+<td>乘</td>
+<td>${1   * 2}</td>
+<td>2</td>
+</tr>
+<tr>
+<td>/或div</td>
+<td>除</td>
+<td>${3   / 2}</td>
+<td>1.5</td>
+</tr>
+<tr>
+<td>%或mod</td>
+<td>取余</td>
+<td>${3   % 2}</td>
+<td>1</td>
+</tr>
+</tbody></table>
+<h3 id="关系运算符"><a href="#关系运算符" class="headerlink" title="关系运算符"></a>关系运算符</h3><table>
+<thead>
+<tr>
+<th><strong>关系运算符</strong></th>
+<th><strong>说明</strong></th>
+<th><strong>示例</strong></th>
+<th><strong>结果</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>=   = 或   eq</td>
+<td>等于</td>
+<td><img src="https://math.jianshu.com/math?formula=%7B1%20%3D%20%3D%201%7D%E6%88%96" alt="{1 = = 1}或">{1   eq 1}</td>
+<td>true</td>
+</tr>
+<tr>
+<td>!=   或ne</td>
+<td>不等于</td>
+<td><img src="https://math.jianshu.com/math?formula=%7B1%20!%3D%201%7D%E6%88%96" alt="{1 != 1}或">{1   ne 1}</td>
+<td>false</td>
+</tr>
+<tr>
+<td>&lt;   或   lt</td>
+<td>小于</td>
+<td><img src="https://math.jianshu.com/math?formula=%7B1%20%3C%202%7D%E6%88%96" alt="{1 &lt; 2}或">{1   lt 1}</td>
+<td>true</td>
+</tr>
+<tr>
+<td>&gt;   或   gt</td>
+<td>大于</td>
+<td><img src="https://math.jianshu.com/math?formula=%7B1%20%3E%202%7D%E6%88%96" alt="{1 &gt; 2}或">{1   gt 1}</td>
+<td>false</td>
+</tr>
+<tr>
+<td>&lt;=   或   le</td>
+<td>小于或者等于</td>
+<td><img src="https://math.jianshu.com/math?formula=%7B1%20%3C%3D%202%7D%E6%88%96" alt="{1 &lt;= 2}或">{1   le 1}</td>
+<td>true</td>
+</tr>
+<tr>
+<td>&gt;=   或   ge</td>
+<td>大于或者等于</td>
+<td><img src="https://math.jianshu.com/math?formula=%7B1%20%3E%3D%202%7D%E6%88%96" alt="{1 &gt;= 2}或">{1   ge 1}</td>
+<td>false</td>
+</tr>
+</tbody></table>
+<h3 id="逻辑运算符"><a href="#逻辑运算符" class="headerlink" title="逻辑运算符"></a>逻辑运算符</h3><table>
+<thead>
+<tr>
+<th><strong>逻辑运算符</strong></th>
+<th><strong>说明</strong></th>
+<th><strong>示例</strong></th>
+<th><strong>结果</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>&amp;&amp;   或   and</td>
+<td>交集</td>
+<td><img src="https://math.jianshu.com/math?formula=%7BA%20%26%26%20B%7D%E6%88%96" alt="{A &amp;&amp; B}或">{A   and B}</td>
+<td>当A和B都为true时为true，其他情况为false</td>
+</tr>
+<tr>
+<td>||   或   or</td>
+<td>并集</td>
+<td><img src="https://math.jianshu.com/math?formula=%7BA%20%7C%7C%20B%7D%E6%88%96" alt="{A || B}或">{A   or B}</td>
+<td>当A和B都为false时为false，其他情况为true</td>
+</tr>
+<tr>
+<td>!   或   not</td>
+<td>非</td>
+<td><img src="https://math.jianshu.com/math?formula=%7B!A%7D%20%E6%88%96" alt="{!A} 或">{not   A}</td>
+<td>当A为true时，为false   当A为false时，为true</td>
+</tr>
+</tbody></table>
+<h3 id="条件运算符"><a href="#条件运算符" class="headerlink" title="条件运算符"></a>条件运算符</h3><figure class="highlight jsp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$&#123;表达式<span class="number">1</span> ? 表达式<span class="number">2</span> : 表达式<span class="number">3</span>&#125; <span class="comment">// 与java用法相同</span></span><br><span class="line">$&#123;currentUser.name==<span class="string">"admin"</span>?<span class="string">"管理员"</span>:<span class="string">"普通用户"</span>&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="验证运算符"><a href="#验证运算符" class="headerlink" title="验证运算符"></a>验证运算符</h3><figure class="highlight jsp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$&#123;empty 表达式&#125;</span><br></pre></td></tr></table></figure>
+
+<p>返回布尔值判断表达式是否为”空”值，null值、无元素的集合或数组、长度为零的String被认为是空值。</p>
+<h2 id="在JS中使用EL"><a href="#在JS中使用EL" class="headerlink" title="在JS中使用EL"></a>在JS中使用EL</h2><h3 id="在本页面中使用EL"><a href="#在本页面中使用EL" class="headerlink" title="在本页面中使用EL"></a>在本页面中使用EL</h3><figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;%</span><br><span class="line">   session.setAttribute(<span class="string">"username"</span>, <span class="string">"admin"</span>);</span><br><span class="line">%&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">    alert(<span class="string">"$&#123;username&#125;"</span>);</span><br><span class="line">&lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="在外链JS文件中引用EL"><a href="#在外链JS文件中引用EL" class="headerlink" title="在外链JS文件中引用EL"></a>在外链JS文件中引用EL</h3><p>必须在当前页面的JS脚本中定义变量存放EL表达式，然后在外部JS文件中引用该变量。</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&lt;%</span><br><span class="line">   session.setAttribute(<span class="string">"username"</span>, <span class="string">"admin"</span>);</span><br><span class="line">%&gt;</span><br><span class="line"></span><br><span class="line">&lt;script src=<span class="string">"js/function.js"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br><span class="line">&lt;script&gt;</span><br><span class="line">   <span class="keyword">var</span> username=<span class="string">"$&#123;username&#125;"</span>;</span><br><span class="line">   myFun();</span><br><span class="line">&lt;<span class="regexp">/script&gt;</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">/</span><span class="regexp">/外联js文件</span></span><br><span class="line"><span class="regexp">function myFun()&#123;</span></span><br><span class="line"><span class="regexp">    alert(username);</span></span><br><span class="line"><span class="regexp">&#125;</span></span><br></pre></td></tr></table></figure>	
 	</div>
 	
 	<div id="current-post-cover" data-scr="/img/cart_cover.jpg"></div>
@@ -336,12 +554,8 @@
 	<span>
 		<a href="javascript: window.scrollTo(0, 0);">To Top</a>
 		
-			<a href="/2019/11/24/jsp的四种语法/" title="jsp的四种语法" rel="prev">
-				&laquo;Pre post
-			</a>
 		
-		
-			<a href="/2019/11/24/jsp基本语法/" title="jsp基本语法" rel="next">
+			<a href="/2019/11/24/java知识点汇总/" title="java知识点汇总" rel="next">
 				Next post&raquo;
 			</a>
 			
@@ -359,6 +573,31 @@
 <div class="relate-post">
 	
 		<ul>
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2019/11/24/java知识点汇总/" title="java知识点汇总">
+								java知识点汇总			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								十一月 24日, 2019				
+							</p>
+							<p class="relate-post-content">
+								第二章：类和对象的创建概念：面向对象就是把一个项目，一个事情分成更小的项目，或者说分成一个个更小的部分，每一部分负责什么方面的功能，最后再由这些部分组合而成为一个整体。
+好处：面相对象更接近实物的本质，提高代码的复用更具有扩展性。
+如...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="/2019/11/24/java知识点汇总/" title="java知识点汇总">				
+								
+								<img class="lazy" src="/img/placeholder.jpg" data-src="/img/cart_cover.jpg" alt="java知识点汇总"/>
+							</a>
+						</div>
+					</li>											
+			
 			
 					<li>
 						<div class="relate-post-text">
@@ -584,31 +823,6 @@ alter database 数据库名;
 							<a href="/2019/10/17/Mysql知识点汇总/" title="Mysql知识点汇总">				
 								
 								<img class="lazy" src="/img/placeholder.jpg" data-src="/img/cart_cover.jpg" alt="Mysql知识点汇总"/>
-							</a>
-						</div>
-					</li>											
-			
-			
-					<li>
-						<div class="relate-post-text">
-							<a class="relate-post-title" href="/2019/10/16/JAVA知识点汇总/" title="JAVA知识点汇总">
-								JAVA知识点汇总			
-							</a>
-							<p class="relate-post-date">
-								<i class="fa fa-calendar"></i>
-								十月 16日, 2019				
-							</p>
-							<p class="relate-post-content">
-								第二章：类和对象的创建概念：面向对象就是把一个项目，一个事情分成更小的项目，或者说分成一个个更小的部分，每一部分负责什么方面的功能，最后再由这些部分组合而成为一个整体。
-好处：面相对象更接近实物的本质，提高代码的复用更具有扩展性。
-如...
-							</p>
-						</div>
-
-						<div class="relate-post-cover">
-							<a href="/2019/10/16/JAVA知识点汇总/" title="JAVA知识点汇总">				
-								
-								<img class="lazy" src="/img/placeholder.jpg" data-src="/img/cart_cover.jpg" alt="JAVA知识点汇总"/>
 							</a>
 						</div>
 					</li>											
