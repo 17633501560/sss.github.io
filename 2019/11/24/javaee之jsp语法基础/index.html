@@ -1,0 +1,1110 @@
+<!--
+	作者：Sariay
+	时间：2018-09-25
+	描述：There may be a bug, but don't worry, QiLing(器灵) says that it can work normally!
+-->
+<!DOCTYPE html>
+<html class="html-loading">
+		
+
+<head><meta name="generator" content="Hexo 3.9.0">
+	<meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+  <title>
+    
+      javaee之jsp语法基础 | Hexo
+    
+  </title>
+  <meta name="author" content="John Doe">
+  <meta name="keywords" content>
+  <meta name="description" content>
+	<!-- favicon -->
+  <link rel="shortcut icon" href="/img/favicon.ico">
+
+  <!-- css -->
+  <link rel="stylesheet" href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="/css/Annie.css">
+  
+  <!-- jquery -->
+	<script src="/js/jquery.min.js"></script>
+
+  <!-- leancloud -->
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+<script src="/js/leancloud.js"></script>
+</head>
+	<body>
+		<!-- Preloader -->
+
+	<div id="preloader">
+		<div class="pre-container">
+			
+				<div class="spinner">
+					<div class="double-bounce1"></div>
+					<div class="double-bounce2"></div>
+				</div>
+						
+		</div>
+	</div>
+
+
+<!-- header -->
+<header class="fixbackground" data-img-mode="normal" data-normal-src="/img/1.jpg" data-random-max="110" data-random-src="https://sariay.github.io/Random-img/">
+	<div class="mask">
+		<!-- Logo and navigation -->
+		<div class="h-header">
+			<div id="logo">
+				<a href="/">
+						
+						<img src="/img/logo.png" alt="Logo">
+					
+				</a>
+			</div>
+			
+			<div id="navigation-show">
+				<ul>
+	
+		<li class="menu-home">
+			<a href="/" class="menu-item-home">Home</a>
+		</li>
+	
+		<li class="menu-archive">
+			<a href="/archives" class="menu-item-archive">Archive</a>
+		</li>
+	
+		<li class="menu-categories">
+			<a href="/categories" class="menu-item-categories">Category</a>
+		</li>
+	
+		<li class="menu-tags">
+			<a href="/tags" class="menu-item-tags">Tag</a>
+		</li>
+	
+		<li class="menu-about">
+			<a href="/about" class="menu-item-about">About</a>
+		</li>
+	
+		<li class="menu-gallery">
+			<a href="/gallery" class="menu-item-gallery">Gallery</a>
+		</li>
+	
+
+	
+</ul>
+			</div>				
+		</div>
+
+		<!-- motto -->
+		<div class="h-body">	
+			
+				<p class="motto"></p>
+			
+		</div>
+		
+		<!-- others: such as time... -->			
+		<div class="h-footer">
+			<a href="javascript:;" id="read-more"><i class="fa fa-angle-double-down" aria-hidden="true"></i>
+			</a>
+
+			
+				<!-- 
+	This is only a demo, please go to "https://time.is" to set your city time! 
+-->
+<style type="text/css">
+	.header-date {
+		font-size: 1.6rem;
+		color: #fff;
+		position: absolute;
+		bottom: 5px;
+		right: 1rem;
+		writing-mode: tb-rl;
+	}	
+	
+	.header-date a {
+		border-bottom: none;
+	}
+
+	@media only screen and (max-width: 768 ) {
+		.header-date {
+			font-size: 1rem;
+		}			
+	}
+</style>
+<div class="header-date">
+	<a href="https://time.is/Beijing" id="time_is_link" rel="nofollow" ></a>
+	<span id="Beijing_z43d"></span>
+</div>
+<script src="//widget.time.is/zh.js"></script>
+<script>
+	time_is_widget.init({
+		Beijing_z43d:{
+			template:"DATE", 
+			date_format:"year年 monthname dnum日"
+		}
+	});
+</script>
+			
+		</div>
+	</div>
+</header>
+
+<div id="navigation-hide">
+	<!-- Progress bar -->
+	<div id="progress-bar"></div>
+
+	<!-- Progress percent -->
+	<div id="progress-percentage"><h1>0.0%</h1></div>
+
+	<div class="toc-switch"><span class="switch-button">Catalog</span></div>
+
+	<!-- Page title -->
+	<p>
+		
+			Current post&nbsp;:&nbsp;《javaee之jsp语法基础》
+		
+	</p>
+
+	<!-- Nav trigger for navigation-H-->
+	<a class="nav-trigger"><span></span></a>
+</div>
+
+<!-- Navigation in div(id="navigation-H") -->
+<nav class="nav-container" id="cd-nav">
+	<div class="nav-header">
+		<h3>Navigation</h3>
+		<a href="javascript:;" class="nav-close"></a>
+	</div>
+	<div class="nav-body">
+		<ul>
+	
+		<li class="menu-home">
+			<a href="/" class="menu-item-home">Home</a>
+		</li>
+	
+		<li class="menu-archive">
+			<a href="/archives" class="menu-item-archive">Archive</a>
+		</li>
+	
+		<li class="menu-categories">
+			<a href="/categories" class="menu-item-categories">Category</a>
+		</li>
+	
+		<li class="menu-tags">
+			<a href="/tags" class="menu-item-tags">Tag</a>
+		</li>
+	
+		<li class="menu-about">
+			<a href="/about" class="menu-item-about">About</a>
+		</li>
+	
+		<li class="menu-gallery">
+			<a href="/gallery" class="menu-item-gallery">Gallery</a>
+		</li>
+	
+
+	
+</ul>
+	</div>
+	<div class="nav-footer">
+		<ul>
+	
+		<li>
+			<a href="http://github.com/" target="_blank">
+				<i class="fa fa-github"></i>
+			</a>
+		</li>
+	
+		<li>
+			<a href="http://github.com/" target="_blank">
+				<i class="fa fa-weibo"></i>
+			</a>
+		</li>
+	
+		<li>
+			<a href="http://github.com/" target="_blank">
+				<i class="fa fa-pinterest"></i>
+			</a>
+		</li>
+	
+		<li>
+			<a href="http://github.com/" target="_blank">
+				<i class="fa fa-instagram"></i>
+			</a>
+		</li>
+	
+		<li>
+			<a href="http://github.com/" target="_blank">
+				<i class="fa fa-twitter"></i>
+			</a>
+		</li>
+	
+		<li>
+			<a href="/atom.xml" target="_blank">
+				<i class="fa fa-rss"></i>
+			</a>
+		</li>
+			
+</ul>
+
+	</div>
+</nav>
+			
+		<!--main-->
+		<main>
+			<!--
+	时间：2018-11-17
+	描述：
+		插件名称：katelog.min.js
+		插件作者：KELEN
+		插件来源: https://github.com/KELEN/katelog
+-->
+
+	
+		<div class="layout-toc">
+			<div id="layout-toc">
+				<div class="k-catelog-list" id="catelog-list" data-title="文章目录"></div>
+			</div>
+		</div>
+
+		
+		<script src="/plugin/toc/katelog.min.js"></script>
+
+		
+	 
+
+<div class="layout-post">
+	<div id="layout-post">
+	<div class="article-title">
+		<i class="fa fa-paper-plane-o" aria-hidden="true"></i>
+		
+	<a href="/2019/11/24/javaee之jsp语法基础/" itemprop="url">
+		javaee之jsp语法基础
+	</a>
+
+	</div>
+
+	<div class="article-meta">
+		<span>
+			<i class="fa fa-calendar"></i>
+			
+
+
+	Posted on
+
+	<a href="/2019/11/24/javaee之jsp语法基础/" itemprop="url">
+		<time datetime="2019-11-24T09:37:01.000Z" itemprop="datePublished">
+	  		2019-11-24
+	  </time>
+	</a>
+	&nbsp;
+
+
+
+
+
+			
+
+
+
+
+	Updated on
+
+	<a href="/2019/11/24/javaee之jsp语法基础/" itemprop="url">
+		<time datetime="2019-11-24T09:37:01.000Z" itemprop="dateUpdated">
+	  		2019-11-24
+	  </time>
+	</a> 
+
+
+
+		</span>
+		<span>
+			<i class="fa fa-tags"></i>
+					
+		</span>
+		
+		
+
+
+
+	</div>
+
+	<div class="article-content" id="article-content">
+		<h3 id="jsp的常用知识点："><a href="#jsp的常用知识点：" class="headerlink" title="jsp的常用知识点："></a>jsp的常用知识点：</h3><ul>
+<li>jsp的三种注释</li>
+<li>三种scriptlet及其区别</li>
+<li>​      page指令</li>
+<li>​      jsp中连接数据库</li>
+<li>​      包含指令</li>
+<li>​      跳转指令</li>
+<li>​      登陆程序</li>
+</ul>
+<h4 id="jsp的介绍："><a href="#jsp的介绍：" class="headerlink" title="jsp的介绍："></a>jsp的介绍：</h4><p>jsp是在sun公司吸收了asp的特点，在html中加入了java代码，形成了jsp。任何的语言都有自己的语法，jsp虽然是在java基础上的应用，但是依然有其自己扩充的语法，而且在jsp中，所有的java语言都可以使用。</p>
+<h4 id="jsp的注释"><a href="#jsp的注释" class="headerlink" title="jsp的注释"></a>jsp的注释</h4><h5 id="jsp的注释分为两类三种："><a href="#jsp的注释分为两类三种：" class="headerlink" title="jsp的注释分为两类三种："></a>jsp的注释分为两类三种：</h5><ul>
+<li>​      ·显示注释：使用html的注释风格<!-- 注释的内容--></li>
+<li>​      ·隐式注释</li>
+<li>​           ·java注释</li>
+<li>​           ·&lt;%–需要注释的额内容–%&gt;</li>
+</ul>
+<p>观察三种注释的区别：</p>
+<p>以发现显示注释和隐式注释的区别，所谓的显示注释就是在查看网页源文件的时候可以看到注释的内容，隐式注释在查看网页源文件的时候看不到注释的内容。</p>
+<h3 id="2-scriptlet"><a href="#2-scriptlet" class="headerlink" title="2.scriptlet"></a>2.scriptlet</h3><p>从使用上来理解，在整个的jsp中scriptlet有三种形式：</p>
+<ul>
+<li>　　&lt;%java程序%&gt;</li>
+<li>​      ·&lt;%! java程序%&gt;</li>
+<li>​      ·&lt;%= java表达式%&gt;</li>
+</ul>
+<p>第一种script：使用的&lt;%java程序%&gt;，这种scriptlet一般使用定义变量和编写语句。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;%</span><br><span class="line">    int sum = 0;</span><br><span class="line">    int sumA = ++sum;</span><br><span class="line">    System.out.println(sumA);</span><br><span class="line">%&gt;</span><br></pre></td></tr></table></figure>
+
+<p>以上程序可以在控制台输出，如果我想要在页面上输出内容呢？这个时候我们必须使用out对象，out是jsp的内置对象之一，也就是说不需要实例化就可以使用的对象。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;%</span><br><span class="line">    int sum = 0;</span><br><span class="line">    int sumA = ++sum;</span><br><span class="line">    System.out.println(sumA);</span><br><span class="line">    out.print(&quot;&lt;h1&gt;&quot;+sumA+&quot;&lt;h1&gt;&quot;);//向浏览器输出</span><br><span class="line">%&gt;</span><br></pre></td></tr></table></figure>
+
+<p>第二种scriptlet:&lt;%! java程序%&gt;在此种scriptlet中可以声明常量，编写方法，编写类，但是一般情况下，我们不会在一个jsp中编写一个类的。而且在此种的scriptlet中不会单独的编写语句。</p>
+<p><a href="javascript:void(0);" target="_blank" rel="noopener"><img src="https://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">&lt;%!</span><br><span class="line">    //定义常量</span><br><span class="line">    //编写方法</span><br><span class="line">    //一般不会定义一个类</span><br><span class="line">    //也不会单独的编写语句</span><br><span class="line">    public static final String DRIVER = &quot;oracle.jdbc.driver.OracleDriver&quot;;</span><br><span class="line">    public static final String URL = &quot;jdbc:oracle:thin:@192.168.1.102:1521:wanczy&quot;;</span><br><span class="line">    public static final String USERNAME = &quot;scott&quot;;</span><br><span class="line">    public static final String PASSWORD = &quot;wanczy&quot;;</span><br><span class="line">    </span><br><span class="line">    public int cheng(int x,int y)&#123;</span><br><span class="line">        return x*y;</span><br><span class="line">    &#125;</span><br><span class="line">%&gt;</span><br><span class="line">&lt;%</span><br><span class="line">    out.print(&quot;&lt;h1&gt;&quot;+DRIVER+&quot;&lt;/h1&gt;&quot;);</span><br><span class="line">    out.print(&quot;&lt;h1&gt;&quot;+URL+&quot;&lt;/h1&gt;&quot;);</span><br><span class="line">    out.print(&quot;&lt;h1&gt;&quot;+USERNAME+&quot;&lt;/h1&gt;&quot;);</span><br><span class="line">    out.print(&quot;&lt;h1&gt;&quot;+PASSWORD+&quot;&lt;/h1&gt;&quot;);</span><br><span class="line">    int z = cheng(10,20);</span><br><span class="line">    out.print(&quot;&lt;h1&gt;&quot;+z+&quot;&lt;/h1&gt;&quot;);</span><br><span class="line">%&gt;</span><br></pre></td></tr></table></figure>
+
+<p><a href="javascript:void(0);" target="_blank" rel="noopener"><img src="https://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></p>
+<p>第三种scriptlet：&lt;%=java表达式%&gt;，此种scriptlet有一个别名，叫做表达式输出，可以使用此种形式的scriptlet输出一个变量或者一个具体的额内容。</p>
+<p><a href="javascript:void(0);" target="_blank" rel="noopener"><img src="https://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">&lt;%!</span><br><span class="line">    //定义常量</span><br><span class="line">    //编写方法</span><br><span class="line">    //一般不会定义一个类</span><br><span class="line">    //也不会单独的编写语句</span><br><span class="line">    public static final String DRIVER = &quot;oracle.jdbc.driver.OracleDriver&quot;;</span><br><span class="line">    public static final String URL = &quot;jdbc:oracle:thin:@192.168.1.102:1521:wanczy&quot;;</span><br><span class="line">    public static final String USERNAME = &quot;scott&quot;;</span><br><span class="line">    public static final String PASSWORD = &quot;wanczy&quot;;</span><br><span class="line">    </span><br><span class="line">    public int cheng(int x,int y)&#123;</span><br><span class="line">        return x*y;</span><br><span class="line">    &#125;</span><br><span class="line">%&gt;</span><br><span class="line">&lt;h1&gt;&lt;%= DRIVER%&gt;&lt;/h1&gt;</span><br><span class="line">&lt;h1&gt;&lt;%= URL%&gt;&lt;/h1&gt;</span><br><span class="line">&lt;h1&gt;&lt;%= USERNAME%&gt;&lt;/h1&gt;</span><br><span class="line">&lt;h1&gt;&lt;%= PASSWORD%&gt;&lt;/h1&gt;</span><br><span class="line">&lt;h1&gt;&lt;%= cheng(10,200)%&gt;&lt;/h1&gt;</span><br></pre></td></tr></table></figure>
+
+<p><a href="javascript:void(0);" target="_blank" rel="noopener"><img src="https://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></p>
+<p>在开发中一般使用第三种</p>
+<h3 id="动态打印表格"><a href="#动态打印表格" class="headerlink" title="动态打印表格"></a>动态打印表格</h3><p>定义输入的表单</p>
+<p><a href="javascript:void(0);" target="_blank" rel="noopener"><img src="https://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.01 Transitional//EN&quot;&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">  &lt;head&gt;</span><br><span class="line">    &lt;title&gt;inputTable.html&lt;/title&gt;</span><br><span class="line">    </span><br><span class="line">  &lt;/head&gt;</span><br><span class="line">  </span><br><span class="line">  &lt;body&gt;</span><br><span class="line">      &lt;center&gt;</span><br><span class="line">          &lt;form  action = &quot;jspDemo05.jsp&quot; method=&quot;post&quot; onsubmit=&quot;return checkValue(this)&quot;&gt;</span><br><span class="line">              &lt;!-- action 表示的是次表单提交的路径 --&gt;</span><br><span class="line">              &lt;!-- method 表示的提交方式，有两种（post、get） --&gt;</span><br><span class="line">              &lt;!-- onsubmit表示提交出发的事件 --&gt;</span><br><span class="line">              &lt;table&gt;</span><br><span class="line">                  &lt;caption&gt;输入行和列&lt;/caption&gt;</span><br><span class="line">                  &lt;tr&gt;</span><br><span class="line">                      &lt;td align=&quot;right&quot;&gt;输入行：&lt;/td&gt;</span><br><span class="line">                      &lt;td align=&quot;left&quot;&gt;&lt;input type=&quot;text&quot; name=&quot;rows&quot;/&gt;&lt;/td&gt;</span><br><span class="line">                  &lt;/tr&gt;</span><br><span class="line">                  &lt;tr&gt;</span><br><span class="line">                      &lt;td align=&quot;right&quot;&gt;输入列：&lt;/td&gt;</span><br><span class="line">                      &lt;td align=&quot;left&quot;&gt;&lt;input type=&quot;text&quot; name=&quot;cols&quot;/&gt;&lt;/td&gt;</span><br><span class="line">                  &lt;/tr&gt;</span><br><span class="line">                  &lt;tr&gt;</span><br><span class="line">                      &lt;td align=&quot;right&quot;&gt;&lt;input type=&quot;submit&quot; value=&quot;提交&quot;/&gt;&lt;/td&gt;</span><br><span class="line">                      &lt;td align=&quot;left&quot;&gt;&lt;input type=&quot;reset&quot; value=&quot;重置&quot;/&gt;&lt;/td&gt;</span><br><span class="line">                  &lt;/tr&gt;</span><br><span class="line">              &lt;/table&gt;</span><br><span class="line">          &lt;/form&gt;</span><br><span class="line">      &lt;/center&gt;</span><br><span class="line">  &lt;/body&gt;</span><br><span class="line">  &lt;script type=&quot;text/javascript&quot;&gt;</span><br><span class="line">      function checkValue(f)&#123;</span><br><span class="line">          var rows = f.rows.value;//取得输入的行</span><br><span class="line">          var cols = f.cols.value;</span><br><span class="line">          if(isNaN(rows))&#123;//使用正则</span><br><span class="line">              alert(&quot;行必须输入数字&quot;);</span><br><span class="line">              f.rows.focus();//此标签得到焦点</span><br><span class="line">              return false;</span><br><span class="line">          &#125;</span><br><span class="line">          if(isNaN(cols))&#123;//使用正则</span><br><span class="line">              alert(&quot;列必须输入数字&quot;);</span><br><span class="line">              f.cols.focus();//此标签得到焦点</span><br><span class="line">              return false;</span><br><span class="line">          &#125;</span><br><span class="line">          return true;</span><br><span class="line">      &#125;</span><br><span class="line">    &lt;/script&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+
+<p><a href="javascript:void(0);" target="_blank" rel="noopener"><img src="https://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></p>
+<p>定义jsp打印表格</p>
+<p><a href="javascript:void(0);" target="_blank" rel="noopener"><img src="https://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">&lt;%</span><br><span class="line">    //接收表单传递的参数，使用request.getParemeter(参数名称)</span><br><span class="line">    int rows = Integer.parseInt(request.getParameter(&quot;rows&quot;));</span><br><span class="line">    int cols = Integer.parseInt(request.getParameter(&quot;cols&quot;));</span><br><span class="line">%&gt;</span><br><span class="line">&lt;table border=&quot;1&quot;&gt;</span><br><span class="line">&lt;%</span><br><span class="line">    for(int i = 1;i&lt;= rows;i++)&#123;</span><br><span class="line">    %&gt;</span><br><span class="line">        &lt;tr&gt;</span><br><span class="line">    &lt;%</span><br><span class="line">        for(int j = 1;j&lt;=cols;j++)&#123;</span><br><span class="line">        %&gt;</span><br><span class="line">        &lt;td&gt;&lt;%=i*j %&gt;&lt;/td&gt;</span><br><span class="line">        &lt;% </span><br><span class="line">        &#125;</span><br><span class="line">     %&gt;    </span><br><span class="line">        &lt;/tr&gt;</span><br><span class="line">    &lt;%</span><br><span class="line">    &#125;</span><br><span class="line"> %&gt;</span><br><span class="line">&lt;/table&gt;</span><br></pre></td></tr></table></figure>
+
+<p><a href="javascript:void(0);" target="_blank" rel="noopener"><img src="https://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></p>
+<h3 id="4-page指令"><a href="#4-page指令" class="headerlink" title="4.page指令"></a>4.page指令</h3><p>page表示的是当前的jsp的页面，可以理解为一个对象，就是说可以将jsp页面当做一个对象来看待，page指令的主要功能有两个：</p>
+<p>​      ·设置MIME类型</p>
+<p>​      ·导包指令</p>
+<p>MIME：多功能网际邮件扩充协议，主要的功能就是制定浏览器的访问形式及编码格式。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;%@page contentType=&quot;text/html; charset=utf-8&quot; %&gt;</span><br></pre></td></tr></table></figure>
+
+<p>设置编码格式，防止乱码</p>
+<p>们之前说过html和htm都是静态网页的后缀，处理的形式是完全一样的，这就是因为其内部的MIME类型设置是相同的。我们可以通过Tomcat/conf/web.xml查看所有的MIME类型。</p>
+<p><a href="javascript:void(0);" target="_blank" rel="noopener"><img src="https://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&lt;mime-mapping&gt;</span><br><span class="line">        &lt;extension&gt;abs&lt;/extension&gt;</span><br><span class="line">        &lt;mime-type&gt;audio/x-mpeg&lt;/mime-type&gt;</span><br><span class="line">    &lt;/mime-mapping&gt;</span><br><span class="line">    &lt;mime-mapping&gt;</span><br><span class="line">        &lt;extension&gt;ai&lt;/extension&gt;</span><br><span class="line">        &lt;mime-type&gt;application/postscript&lt;/mime-type&gt;</span><br><span class="line">    &lt;/mime-mapping&gt;</span><br><span class="line">    &lt;mime-mapping&gt;</span><br><span class="line">        &lt;extension&gt;aif&lt;/extension&gt;</span><br><span class="line">        &lt;mime-type&gt;audio/x-aiff&lt;/mime-type&gt;</span><br><span class="line">    &lt;/mime-mapping&gt;</span><br><span class="line">    &lt;mime-mapping&gt;</span><br><span class="line">        &lt;extension&gt;aifc&lt;/extension&gt;</span><br><span class="line">        &lt;mime-type&gt;audio/x-aiff&lt;/mime-type&gt;</span><br><span class="line">    &lt;/mime-mapping&gt;</span><br></pre></td></tr></table></figure>
+
+<p><a href="javascript:void(0);" target="_blank" rel="noopener"><img src="https://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></p>
+<p>MIME类型有很多，只要合理的设置了MIME类型，则一个页面理论上是可以显示成任意的风格</p>
+<h3 id="使用page进行导包"><a href="#使用page进行导包" class="headerlink" title="使用page进行导包"></a>使用page进行导包</h3><p>使用import指令完成导包，而且import是jsp中唯一一个可以设置多次的指令。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;%@page contentType=&quot;text/html; charset=utf-8&quot;%&gt;</span><br><span class="line">&lt;%@page import=&quot;java.sql.*,java.util.*&quot;%&gt;</span><br><span class="line">&lt;%@page import = &quot;java.io.*&quot;%&gt;</span><br><span class="line">&lt;%@page import=&quot;com.wanczy.*&quot;%&gt;</span><br></pre></td></tr></table></figure>
+
+<p>既然我们在jsp中可以导入sql包，也就是意味着jsp可以链接数据库了，既然jsp要链接数据库的话，必须要导入Oracle驱动包，实际上只需要在tomcat/lib目录中加入驱动程序就可以了。如果是通过快速部署项目的话，驱动程序还必须导入到工程中去，有两种方式：</p>
+<p>​      ·类似与java工程一样进行导入</p>
+<p>​      ·将驱动程序放入到web-inf/lib目录中</p>
+<p>范例：查询dept表中的所有的数据</p>
+<p><a href="javascript:void(0);" target="_blank" rel="noopener"><img src="https://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">&lt;%@page contentType=&quot;text/html; charset=utf-8&quot;%&gt;</span><br><span class="line">&lt;%@page import=&quot;java.sql.*&quot;%&gt;</span><br><span class="line">&lt;%!</span><br><span class="line">    //定义常量</span><br><span class="line">    //编写方法</span><br><span class="line">    //一般不会定义一个类</span><br><span class="line">    //也不会单独的编写语句</span><br><span class="line">    public static final String DRIVER = &quot;oracle.jdbc.driver.OracleDriver&quot;;</span><br><span class="line">    public static final String URL = &quot;jdbc:oracle:thin:@192.168.1.103:1521:wanczy&quot;;</span><br><span class="line">    public static final String USERNAME = &quot;scott&quot;;</span><br><span class="line">    public static final String PASSWORD = &quot;wanczy&quot;;</span><br><span class="line">%&gt;</span><br><span class="line">&lt;table&gt;</span><br><span class="line">&lt;caption&gt;部门信息表&lt;/caption&gt;</span><br><span class="line">&lt;tr&gt;</span><br><span class="line">    &lt;th&gt;部门编号&lt;/th&gt;</span><br><span class="line">    &lt;th&gt;部门名称&lt;/th&gt;</span><br><span class="line">    &lt;th&gt;部门位置&lt;/th&gt;</span><br><span class="line">&lt;/tr&gt;</span><br><span class="line">&lt;%</span><br><span class="line">    Class.forName(DRIVER);</span><br><span class="line">    Connection conn = DriverManager.getConnection(URL,USERNAME,PASSWORD);</span><br><span class="line">    String sql = &quot;select deptno,dname,loc from dept&quot;;</span><br><span class="line">    PreparedStatement pstate = conn.prepareStatement(sql);</span><br><span class="line">    ResultSet res = pstate.executeQuery();</span><br><span class="line">    while(res.next())&#123;</span><br><span class="line">%&gt;</span><br><span class="line">    &lt;tr&gt;</span><br><span class="line">        &lt;td&gt;&lt;%=res.getInt(1) %&gt;&lt;/td&gt;</span><br><span class="line">        &lt;td&gt;&lt;%=res.getString(2) %&gt;&lt;/td&gt;</span><br><span class="line">        &lt;td&gt;&lt;%=res.getString(3) %&gt;&lt;/td&gt;</span><br><span class="line">    &lt;/tr&gt;</span><br><span class="line">&lt;%</span><br><span class="line">    &#125;</span><br><span class="line">    res.close();</span><br><span class="line">    pstate.close();</span><br><span class="line">    conn.close();</span><br><span class="line">%&gt;</span><br><span class="line">&lt;/table&gt;</span><br></pre></td></tr></table></figure>
+
+<p><a href="javascript:void(0);" target="_blank" rel="noopener"><img src="https://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></p>
+<h3 id="5-包含指令"><a href="#5-包含指令" class="headerlink" title="5.包含指令"></a>5.包含指令</h3><table>
+<thead>
+<tr>
+<th>头部信息</th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>操作菜单</td>
+<td>实际的操作区域</td>
+</tr>
+<tr>
+<td>尾部信息</td>
+<td></td>
+</tr>
+</tbody></table>
+<p>如果想要实现以上的网页的布局，有两种方式：</p>
+<p>​      ·分别将头信息，操作菜单，实际操作区域和尾部信息写在不同的界面里面，用包含的方式进行包含（框架布局，包含）</p>
+<p>​      ·所有的内容写在一个页面中（响应式布局）</p>
+<p>以上的两种形式，现在最流行的是响应式布局，但是响应式布局存在问题就是维护不方便，一个页面中的内容太多了</p>
+<p>在jsp中使用include进行包含，语法有两种格式：</p>
+<p>​      ·@include指令</p>
+<p>​      ·<a href="jsp:include" target="_blank" rel="noopener">jsp:include</a> jsp的include标签</p>
+<p>第一种包含：使用include指令，这种包含叫做静态包含，主页面不能够向被包含的页面传递参数，可以包含任意类型的文件，将包含文件的内容加载。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;%@page contentType=&quot;text/html; charset=utf-8&quot;%&gt;</span><br><span class="line">&lt;h1&gt;includeDemo01.jsp&lt;/h1&gt;</span><br><span class="line">&lt;%@include file=&quot;content.html&quot;%&gt;</span><br><span class="line">&lt;%@include file=&quot;content.txt&quot;%&gt;</span><br><span class="line">&lt;%@include file=&quot;content.jsp&quot;%&gt;</span><br><span class="line">&lt;%@include file=&quot;content.ini&quot;%&gt;</span><br></pre></td></tr></table></figure>
+
+<p>现在我们新建了几个不同类型的文件，使用包含语句将这几个文件全部包含到jsp中。程序显示的效果是将这几个不同类型文件的内容加载进来。</p>
+<p>第二种包含：使用&lt;jsp:include  page=”被包含界面”&gt;,这种包含称为动态包含，如果被包含的界面是jsp，则先处理之后将jsp的结果进行包含，如果是非jsp的页面的话，则和静态的包含是一致。语法格式有两种：</p>
+<p>​      ·&lt;jsp:include page =”被包含页面”/&gt;</p>
+<p>​      ·&lt;jsp:include page=”被包含的页面”&gt;</p>
+<p>​                 &lt;jsp:param name=”参数名称” value=”参数的值”/&gt;</p>
+<p>​                 &lt;jsp:param name=”参数名称” value=”参数的值”/&gt;</p>
+<p>​                 …</p>
+<p>​           </p>
+<p>范例：使用第一种语法格式</p>
+<p><a href="javascript:void(0);" target="_blank" rel="noopener"><img src="https://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;%@page contentType=&quot;text/html; charset=utf-8&quot;%&gt;</span><br><span class="line">&lt;h1&gt;includeDemo01.jsp&lt;/h1&gt;</span><br><span class="line"></span><br><span class="line">&lt;jsp:include page=&quot;content.html&quot;/&gt;</span><br><span class="line">&lt;jsp:include page=&quot;content.txt&quot;/&gt;</span><br><span class="line">&lt;jsp:include page=&quot;content.jsp&quot;/&gt;</span><br><span class="line">&lt;jsp:include page=&quot;content.ini&quot;/&gt;</span><br></pre></td></tr></table></figure>
+
+<p><a href="javascript:void(0);" target="_blank" rel="noopener"><img src="https://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></p>
+<p>以上的包含和使用include指令包含效果是相似的，我们把这种包含也成为静态包含。</p>
+<p>范例：第二种语法格式，如果要向被包包含的页面传递参数的话，那么必须被包含的界面是jsp界面</p>
+<p>以上的包含和使用include指令包含效果是相似的，我们把这种包含也成为静态包含。</p>
+<p>范例：第二种语法格式，如果要向被包包含的页面传递参数的话，那么必须被包含的界面是jsp界面</p>
+<p><a href="javascript:void(0);" target="_blank" rel="noopener"><img src="https://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;%@page contentType=&quot;text/html; charset=utf-8&quot;%&gt;</span><br><span class="line">&lt;h1&gt;includeDemo02.jsp&lt;/h1&gt;</span><br><span class="line">&lt;!-- 传递参数 --&gt;</span><br><span class="line">&lt;jsp:include page=&quot;includeDemo03.jsp&quot;&gt;</span><br><span class="line">    &lt;jsp:param value=&quot;DH15&quot; name=&quot;className&quot;/&gt;</span><br><span class="line">    &lt;jsp:param value=&quot;FangLinTang,QiCao&quot; name=&quot;classMo&quot;/&gt;</span><br><span class="line">&lt;/jsp:include&gt;</span><br></pre></td></tr></table></figure>
+
+<p><a href="javascript:void(0);" target="_blank" rel="noopener"><img src="https://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;%@page contentType=&quot;text/html; charset=utf-8&quot;%&gt;</span><br><span class="line">&lt;h1&gt;includeDemo03.jsp&lt;/h1&gt;</span><br><span class="line">&lt;!-- 接收参数 --&gt;</span><br><span class="line">&lt;h1&gt;&lt;%=request.getParameter(&quot;className&quot;) %&gt;&lt;/h1&gt;</span><br><span class="line">&lt;h1&gt;&lt;%=request.getParameter(&quot;classMo&quot;) %&gt;&lt;/h1&gt;</span><br></pre></td></tr></table></figure>
+
+<p>两种包含的区别：我们知道包含有include指令和jsp的include标签，那么我们要通过代码来观察两种包含的区别：</p>
+<p>​      ·第一种包含</p>
+<p><a href="javascript:void(0);" target="_blank" rel="noopener"><img src="https://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;%@page contentType=&quot;text/html; charset=utf-8&quot;%&gt;</span><br><span class="line">&lt;h1&gt;includeDemo01.jsp&lt;/h1&gt;</span><br><span class="line">&lt;%</span><br><span class="line">    int i = 0;</span><br><span class="line"> %&gt;</span><br><span class="line">&lt;%@include file=&quot;content.jsp&quot; %&gt;</span><br><span class="line">&lt;h1&gt;&lt;%=i %&gt;&lt;/h1&gt;</span><br></pre></td></tr></table></figure>
+
+<p><a href="javascript:void(0);" target="_blank" rel="noopener"><img src="https://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;h1&gt;Content.jsp&lt;/h1&gt;</span><br><span class="line">&lt;%</span><br><span class="line">    int i = 0;</span><br><span class="line"> %&gt;</span><br><span class="line"> &lt;h1&gt;&lt;%=i %&gt;&lt;/h1&gt;</span><br></pre></td></tr></table></figure>
+
+<p>发现提出错误:重复定义了变量i，因为include指令格式的包含是将内容进行包含。</p>
+<p><a href="javascript:void(0);" target="_blank" rel="noopener"><img src="https://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;%@page contentType=&quot;text/html; charset=utf-8&quot;%&gt;</span><br><span class="line">&lt;h1&gt;includeDemo01.jsp&lt;/h1&gt;</span><br><span class="line">&lt;%</span><br><span class="line">    int i = 0;</span><br><span class="line"> %&gt;</span><br><span class="line">&lt;jsp:include page=&quot;content.jsp&quot;/&gt;</span><br><span class="line">&lt;h1&gt;&lt;%=i %&gt;&lt;/h1&gt;</span><br></pre></td></tr></table></figure>
+
+<p><a href="javascript:void(0);" target="_blank" rel="noopener"><img src="https://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></p>
+<p>现在第第二种包含可以正确的显示，不会收到包含与包含程序的影响，通过以上的两个程序我们可以得出include指令包含和jsp:include包含的区别：</p>
+<p>​      ·指令包含是将被包含页面的内容进行包含</p>
+<p>​      ·标签包含是将被包含页面的结果进行包含</p>
+<h3 id="6-跳转指令"><a href="#6-跳转指令" class="headerlink" title="6.跳转指令"></a>6.跳转指令</h3><p>页面和页面之间的跳转，我们目前知道的有两种：</p>
+<p>​      ·通过超链接</p>
+<p>​      ·表单提交</p>
+<p>今天我们来讲到第三种：使用<a href="jsp:forward" target="_blank" rel="noopener">jsp:forward</a>标签完成跳转功能，当我们程序执行到语句的时候，会立刻无条件的跳转，跳转指令也属于标签指令格式。语法有两种：</p>
+<p>​      ·&lt;jsp:forward  page=”跳转后的界面”/&gt;</p>
+<p>​      ·&lt;jsp:forward  page=”跳转后的界面” &gt;</p>
+<p>​                 &lt;jsp:param name=”参数名称” value=”参数的值”/&gt;</p>
+<p>​                 …</p>
+<p>​           </p>
+<p>所有的jsp的标签都需要完结的，在开发中，我们尽量将所有的标签都进行完结。</p>
+<p>范例：完成跳转的功能</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;%@page contentType=&quot;text/html; charset=utf-8&quot;%&gt;</span><br><span class="line">&lt;h1&gt;这是frowardDemo01.jsp&lt;/h1&gt;</span><br><span class="line">&lt;jsp:forward page=&quot;forwardDemo2.jsp&quot;&gt;</span><br><span class="line">    &lt;jsp:param value=&quot;DH15&quot; name=&quot;className&quot;/&gt;</span><br><span class="line">&lt;/jsp:forward&gt;</span><br><span class="line">&lt;%@page contentType=&quot;text/html; charset=utf-8&quot;%&gt;</span><br><span class="line">&lt;h1&gt;这是frowardDemo2.jsp&lt;/h1&gt;</span><br><span class="line">&lt;h1&gt;&lt;%=request.getParameter(&quot;className&quot;) %&gt;&lt;/h1&gt;</span><br></pre></td></tr></table></figure>
+
+<p>发现我们的程序进行了跳转，而且向跳转后的页面传递了参数，从页面显示来看，虽然完成了跳转功能，但是地址栏依然显示的forwardDmeo01.jsp，也就是说地址栏没有发生改变，以后碰到如果跳转后地址栏显示的是跳转前的地址，那么这种跳转我们叫做是服务端跳转，只要是服务端跳转，地址栏是永远不会发生变化的。像a标签和表单提交，我们都知道地址栏会发生变化，这种跳转我们叫做客户端跳转。以上的程序进行了服务端跳转而且向跳转后的页面传递了参数。</p>
+<h3 id="7-小结"><a href="#7-小结" class="headerlink" title="7.小结　　　　"></a>7.小结　　　　</h3><p>​         ·jsp中三种注释和三种script</p>
+<p>​       ·可以通过设置mime类型完成浏览器访问时的编码的设置</p>
+<p>​       ·导包指令的话可以导入任意的存在包</p>
+<p>​       ·jsp链接数据库</p>
+<p>​       ·对于包含，要了解包含的语法格式并且要知道两种不同语法包含的区别</p>
+<p>​       ·对于跳转来说，一定要区分清楚什么是服务端跳转，什么是客户端跳转</p>
+	
+	</div>
+	
+	<div id="current-post-cover" data-scr="/img/cart_cover.jpg"></div>
+
+	<!-- relate post, comment...-->
+	<div class="investment-container">
+		<div class="investment-header">
+			<div class="investment-title-1">
+				<div class="on">Related post</div>
+				<div>Comment</div>
+				<div>Share</div>
+			</div>
+			<div class="investment-title-2">	            
+				
+	<span>
+		<a href="javascript: window.scrollTo(0, 0);">To Top</a>
+		
+		
+			<a href="/2019/11/24/jsp-el用法/" title="jsp el用法" rel="next">
+				Next post&raquo;
+			</a>
+			
+	</span>
+
+
+      		
+			</div>	
+		</div>
+		
+		<div class="investment-content">
+			<div class="investment-content-list">
+				
+
+<div class="relate-post">
+	
+		<ul>
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2019/11/24/jsp-el用法/" title="jsp el用法">
+								jsp el用法			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								十一月 24日, 2019				
+							</p>
+							<p class="relate-post-content">
+								EL(Expression Language)表达式并不是通用的程序设计语言，仅是一种数据访问语言，可以在JSP中方便地访问Java数据。1示例：$&#123;expression&#125;
+
+EL隐式对象列表
+
+
+
+类别
+标识符
+...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="/2019/11/24/jsp-el用法/" title="jsp el用法">				
+								
+								<img class="lazy" src="/img/placeholder.jpg" data-src="/img/cart_cover.jpg" alt="jsp el用法"/>
+							</a>
+						</div>
+					</li>											
+			
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2019/11/24/java知识点汇总/" title="java知识点汇总">
+								java知识点汇总			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								十一月 24日, 2019				
+							</p>
+							<p class="relate-post-content">
+								第二章：类和对象的创建概念：面向对象就是把一个项目，一个事情分成更小的项目，或者说分成一个个更小的部分，每一部分负责什么方面的功能，最后再由这些部分组合而成为一个整体。
+好处：面相对象更接近实物的本质，提高代码的复用更具有扩展性。
+如...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="/2019/11/24/java知识点汇总/" title="java知识点汇总">				
+								
+								<img class="lazy" src="/img/placeholder.jpg" data-src="/img/cart_cover.jpg" alt="java知识点汇总"/>
+							</a>
+						</div>
+					</li>											
+			
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2019/11/24/jsp的四种语法/" title="jsp的四种语法">
+								jsp的四种语法			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								十一月 24日, 2019				
+							</p>
+							<p class="relate-post-content">
+								1.JSP注释JSP注释用于注释在程序开发过程中的开发提示，不会输出到浏览器端。 JSP注释的语法格式如下：
+1&lt;%--JSP注释 --%&gt;
+
+与JSP注释相似的是HTML注释，HTML注释的语法格式如下：
+1&lt;!-...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="/2019/11/24/jsp的四种语法/" title="jsp的四种语法">				
+								
+								<img class="lazy" src="/img/placeholder.jpg" data-src="/img/cart_cover.jpg" alt="jsp的四种语法"/>
+							</a>
+						</div>
+					</li>											
+			
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2019/11/24/jsp基本语法/" title="jsp基本语法">
+								jsp基本语法			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								十一月 24日, 2019				
+							</p>
+							<p class="relate-post-content">
+								JSP基础语法1、JSP模版元素　　JSP页面中的HTML内容称之为JSP模版元素。　　JSP模版元素定义了网页的基本骨架，即定义了页面的结构和外观。
+　　&lt;%@ page language=”java” import=”jav...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="/2019/11/24/jsp基本语法/" title="jsp基本语法">				
+								
+								<img class="lazy" src="/img/placeholder.jpg" data-src="/img/cart_cover.jpg" alt="jsp基本语法"/>
+							</a>
+						</div>
+					</li>											
+			
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2019/11/24/MVC模式/" title="MVC模式">
+								MVC模式			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								十一月 24日, 2019				
+							</p>
+							<p class="relate-post-content">
+								学习过基本Java Web开发的人都已经了解了如何编写基本的Servlet，如何编写jsp及如何更新浏览器中显示的内容。但是我们之前自己编写的应用一般存在无条理性，对于一个小型的网站这样的编写没有任何问题，但是一但我们需要编写大型的w...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="/2019/11/24/MVC模式/" title="MVC模式">				
+								
+								<img class="lazy" src="/img/placeholder.jpg" data-src="/img/cart_cover.jpg" alt="MVC模式"/>
+							</a>
+						</div>
+					</li>											
+			
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2019/11/24/jsp隐含对象/" title="jsp隐含对象">
+								jsp隐含对象			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								十一月 24日, 2019				
+							</p>
+							<p class="relate-post-content">
+								一、隐含对象1.什么是隐含对象(9个)？————JSP中的隐含对象:不用我们手工去创建的对象类型                    对象名            功能
+
+JspWriter              out    ...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="/2019/11/24/jsp隐含对象/" title="jsp隐含对象">				
+								
+								<img class="lazy" src="/img/placeholder.jpg" data-src="/img/cart_cover.jpg" alt="jsp隐含对象"/>
+							</a>
+						</div>
+					</li>											
+			
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2019/11/24/Java-Bean/" title="Java Bean">
+								Java Bean			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								十一月 24日, 2019				
+							</p>
+							<p class="relate-post-content">
+								Java Bean： 组件、构件的规范(属性，提供get/set方法；还可包含其他方法)JSP调用JavaBean  通过引入JavaBean，JSP才能较好的把页面展示与业务逻辑分离。  其中，业务逻辑放到后台的Java Bean中...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="/2019/11/24/Java-Bean/" title="Java Bean">				
+								
+								<img class="lazy" src="/img/placeholder.jpg" data-src="/img/cart_cover.jpg" alt="Java Bean"/>
+							</a>
+						</div>
+					</li>											
+			
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2019/11/20/jsp介绍及使用/" title="jsp介绍及使用">
+								jsp介绍及使用			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								十一月 20日, 2019				
+							</p>
+							<p class="relate-post-content">
+								JSP 定义：1)Java Server Page, Java EE 组件，本质上是 Servlet。
+2)运行在 Web Container.接收 Http Request,生成 Http Response(默认协议是 Http 请...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="/2019/11/20/jsp介绍及使用/" title="jsp介绍及使用">				
+								
+								<img class="lazy" src="/img/placeholder.jpg" data-src="/img/cart_cover.jpg" alt="jsp介绍及使用"/>
+							</a>
+						</div>
+					</li>											
+			
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2019/10/30/jsp内置对象/" title="jsp内置对象">
+								jsp内置对象			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								十月 30日, 2019				
+							</p>
+							<p class="relate-post-content">
+								JSP九大内置对象详解JSP内置对象(9个内置对象):1.PageContext javax.servlet.jsp.PageContext JSP的页面容器2.request    javax.servlet.http.HttpSe...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="/2019/10/30/jsp内置对象/" title="jsp内置对象">				
+								
+								<img class="lazy" src="/img/placeholder.jpg" data-src="/img/cart_cover.jpg" alt="jsp内置对象"/>
+							</a>
+						</div>
+					</li>											
+			
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2019/10/30/博客搭建/" title="博客搭建">
+								博客搭建			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								十月 30日, 2019				
+							</p>
+							<p class="relate-post-content">
+								目录一、前期准备    
+二、软件安装    
+三、Hexo配置流程    
+四、部署到GitHub服务器    
+五、发布博客内容    
+Github个人技术博客搭建步骤
+一、前期准备1、GitHub账号
+注册地址：https:/...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="/2019/10/30/博客搭建/" title="博客搭建">				
+								
+								<img class="lazy" src="/img/placeholder.jpg" data-src="/img/cart_cover.jpg" alt="博客搭建"/>
+							</a>
+						</div>
+					</li>											
+			
+			
+		</ul>
+	
+</div>	
+			</div>
+			<div class="investment-content-list">
+				<div class="layout-comment">
+
+	
+
+		
+
+			<!-- I don't know !!!-->
+			<div>Please check the comment setting in config.yml of hexo-theme-Annie!</div>
+			
+		
+		
+	
+
+</div>
+			</div>
+			<div class="investment-content-list">
+				<div class="layout-share">
+	
+	
+
+		
+			
+			<!-- socialShare share -->
+			<div class="social-share"></div>
+
+<!--  css & js -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/css/share.min.css">
+<script async src="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/js/social-share.min.js"></script>
+			
+		
+		
+	
+</div>
+
+
+			</div>
+		</div>	
+	</div>
+	</div>
+</div>
+
+
+
+	<!-- leancloud -->
+	<!--
+	时间：2018-11-27
+	描述：
+		文章访问量：visitors
+		文章喜欢量：likes	
+		文章排行榜：topNPost
+		其他得说明：
+			01-Cookie相关的函数 
+				https://blog.csdn.net/somehow1002/article/details/78511541（Author：somehow1002）
+			02-visitors相关的函数 
+				https://blog.csdn.net/u013553529/article/details/63357382（Author：爱博客大伯）
+				https://notes.doublemine.me/2015-10-21-为NexT主题添加文章阅读量统计功能.html（Author：夏末）
+			03-topNPost相关的函数
+				https://hoxis.github.io/hexo-next-read-rank.html（Author：hoxis）
+			04-likes相关的函数，
+				参考了01 & 02进行简单的设计与实现
+-->
+
+
+	
+
+
+<!-- show math formula -->
+
+
+
+	 
+	<script src="/plugin/clipboard/clipboard.js"></script>
+	<script>
+		// Copy code !
+	    function codePreprocessing() {
+	        $("#article-content .highlight").each(function() {
+
+	            $(this).wrap('<div id="post-code"></div>');
+
+	        })
+
+	        $("#article-content #post-code").each(function() {
+
+	            $(this).prepend('<nav class="copy-nav"><span><i class="code-language"></i></span></nav>');
+
+	        })
+
+	        $("#article-content .copy-nav").each(function() {
+	            var temp = $(this).next().attr('class'),
+	                language = ((temp.length > 9) && (temp != null)) ? temp.substr(10) : "none"; //why 9? Need to check language?
+
+	            $(this).find('.code-language').text(language);
+
+	            $(this).append('<span class="copy-btn"><i class="fa fa-copy" aria-hidden="true"></i></span>');
+
+	        });
+	    }
+
+		function codeCopy() {
+		    $('#article-content #post-code').each(function(i) {
+		        var codeCopyId = 'codeCopy-' + i;
+
+		        var codeNode = $(this).find('.code'),
+		            copyButton = $(this).find('.copy-btn');
+
+		        codeNode.attr('id', codeCopyId);
+		        copyButton.attr('data-clipboard-target-id', codeCopyId);
+		    })
+
+		    
+			var clipboard = new ClipboardJS('.copy-btn', {
+					target: function(trigger) {
+						return document.getElementById(trigger.getAttribute('data-clipboard-target-id'));
+					}
+		      	});
+
+			//pure js
+			function showTooltip(elem, msg) {		   
+				elem.setAttribute('aria-label', msg);
+				elem.setAttribute('class', 'copy-btn copy-status');
+				setTimeout(function() {
+					elem.setAttribute('class', 'copy-btn');
+				}, 2000);
+			}
+
+			clipboard.on('success', function(e) {
+			    e.clearSelection();
+			    console.info('Action:', e.action);		   
+			    console.info('Trigger:', e.trigger);
+			    showTooltip(e.trigger, 'Copied!');
+			    
+			});
+			clipboard.on('error', function(e) {
+			    console.error('Action:', e.action);
+			    console.error('Trigger:', e.trigger);
+			});
+		
+
+		}
+
+		if ($('.layout-post').length) {
+		    codePreprocessing();
+		    codeCopy();
+		} 
+	</script>
+
+
+
+
+
+<link rel="stylesheet" href="/plugin/fancybox/jquery.fancybox.css">
+<script src="/plugin/fancybox/jquery.fancybox.js"></script>
+
+<script type="text/javascript">
+	var titleID = $('.article-title a'),
+		imageID = $('.article-content img'),
+		videoID = $('.article-content video');
+
+	var postTitle = titleID.text() ? titleID.text() : "No post title!";
+
+	imageID.each(function() {
+		var imgPath = $(this).attr('src'),
+			imgTitle = $(this).attr('alt') ? $(this).attr('alt') : "No image description!";
+
+		//给每个匹配的<img>元素打包, 即添加父元素<a>
+		$(this).wrap('<a data-fancybox="gallery" data-caption=" 《 ' + postTitle + ' 》 ' + imgTitle + ' "  href=" ' + imgPath + ' "> </a>');
+	});
+
+	videoID.each(function() {
+		var videoPath = $(this).attr('src');
+
+		//给每个匹配的<img>元素打包, 即添加父元素<a>
+		$(this).wrap('<a data-fancybox href=" ' + videoPath + ' "> </a>');
+	});
+	//TODO：支持html5 video
+
+	if($('#layout-post').length) {
+		$('[data-fancybox="gallery"]').fancybox({
+			loop: true,
+			buttons: [
+				"zoom",
+				"share",
+				"slideShow",
+				"fullScreen",
+				//"download",
+				"thumbs",
+				"close"
+			],
+			protect: false
+		});
+	}
+</script>
+		</main>
+
+		<!--footer-->
+		<footer>
+	<div class="social">
+		<ul>
+	
+		<li>
+			<a href="http://github.com/" target="_blank">
+				<i class="fa fa-github"></i>
+			</a>
+		</li>
+	
+		<li>
+			<a href="http://github.com/" target="_blank">
+				<i class="fa fa-weibo"></i>
+			</a>
+		</li>
+	
+		<li>
+			<a href="http://github.com/" target="_blank">
+				<i class="fa fa-pinterest"></i>
+			</a>
+		</li>
+	
+		<li>
+			<a href="http://github.com/" target="_blank">
+				<i class="fa fa-instagram"></i>
+			</a>
+		</li>
+	
+		<li>
+			<a href="http://github.com/" target="_blank">
+				<i class="fa fa-twitter"></i>
+			</a>
+		</li>
+	
+		<li>
+			<a href="/atom.xml" target="_blank">
+				<i class="fa fa-rss"></i>
+			</a>
+		</li>
+			
+</ul>
+
+	</div>
+		
+	<div class="copyright">
+		<p>
+			 
+				&copy;2017 - 2019, content by John Doe. All Rights Reserved.
+			
+			
+			
+
+	<!-- busuanzi -->
+	<!-- busuanzi -->
+
+		
+	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+	
+
+		<span id="busuanzi_container_page_pv">
+	  		本文总阅读量<span id="busuanzi_value_page_pv"></span>次
+		</span>
+
+	
+
+
+
+
+		</p>
+		<p>
+			<a href="http://hexo.io/" title="Hexo" target="_blank" rel="noopener">Hexo</a> Theme <a href="https://github.com/Sariay/hexo-theme-Annie" title="Annie" target="_blank" rel="noopener">Annie</a> by Sariay.
+			<a href="javascript:zh_tran('s');" class="zh_click" id="zh_click_s">简体</a> 
+			<a href="javascript:zh_tran('t');" class="zh_click" id="zh_click_t">繁體</a>				
+		</p>
+	</div>		
+</footer>
+		
+	<!-- set '1' to show motto in all pages! -->
+
+	<script src="/plugin/motto/motto.js"></script>
+	
+	<script type="text/javascript">
+		$(".motto").html( getMingYanContent() );
+	</script>	
+
+
+
+
+
+<!-- love effect -->
+
+	<script src="/plugin/love/love.js"></script>
+
+
+<!-- back to top -->
+
+	
+	<div id="totop">
+  		<a href="javascript:;"  name="TOTOP" class="fa fa-arrow-up" ></a>
+	</div>
+
+
+
+
+<!-- site analysis -->
+
+
+	<!-- site-analysis -->
+	
+
+	
+	
+	
+	
+ 
+
+<script src="/plugin/vibrant/vibrant.js"></script>
+<script src="/plugin/chinese/chinese.js"></script>
+<script src="/plugin/imgLazyLoader/yall.min.js"></script>
+<script src="/plugin/imgResize/jquery.resizeimagetoparent.min.js"></script>
+<script src="/plugin/nicescroll/jquery.nicescroll.js"></script>
+<script src="/js/resizediv.js"></script>
+<script src="/js/main.js"></script>
+	</body>	
+</html>
