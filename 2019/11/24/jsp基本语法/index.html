@@ -13,7 +13,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
   <title>
     
-      Java Bean | Hexo
+      jsp基本语法 | Hexo
     
   </title>
   <meta name="author" content="John Doe">
@@ -160,7 +160,7 @@
 	<!-- Page title -->
 	<p>
 		
-			Current post&nbsp;:&nbsp;《Java Bean》
+			Current post&nbsp;:&nbsp;《jsp基本语法》
 		
 	</p>
 
@@ -277,8 +277,8 @@
 	<div class="article-title">
 		<i class="fa fa-paper-plane-o" aria-hidden="true"></i>
 		
-	<a href="/2019/11/24/Java-Bean/" itemprop="url">
-		Java Bean
+	<a href="/2019/11/24/jsp基本语法/" itemprop="url">
+		jsp基本语法
 	</a>
 
 	</div>
@@ -291,8 +291,8 @@
 
 	Posted on
 
-	<a href="/2019/11/24/Java-Bean/" itemprop="url">
-		<time datetime="2019-11-24T08:19:03.000Z" itemprop="datePublished">
+	<a href="/2019/11/24/jsp基本语法/" itemprop="url">
+		<time datetime="2019-11-24T08:42:32.000Z" itemprop="datePublished">
 	  		2019-11-24
 	  </time>
 	</a>
@@ -309,8 +309,8 @@
 
 	Updated on
 
-	<a href="/2019/11/24/Java-Bean/" itemprop="url">
-		<time datetime="2019-11-24T08:19:03.000Z" itemprop="dateUpdated">
+	<a href="/2019/11/24/jsp基本语法/" itemprop="url">
+		<time datetime="2019-11-24T08:42:32.000Z" itemprop="dateUpdated">
 	  		2019-11-24
 	  </time>
 	</a> 
@@ -330,31 +330,45 @@
 	</div>
 
 	<div class="article-content" id="article-content">
-		<h4 id="Java-Bean：-组件、构件的规范-属性，提供get-set方法；还可包含其他方法"><a href="#Java-Bean：-组件、构件的规范-属性，提供get-set方法；还可包含其他方法" class="headerlink" title="Java Bean： 组件、构件的规范(属性，提供get/set方法；还可包含其他方法)"></a>Java Bean： 组件、构件的规范(属性，提供get/set方法；还可包含其他方法)</h4><p>JSP调用JavaBean<br>  通过引入JavaBean，JSP才能较好的把页面展示与业务逻辑分离。<br>  其中，业务逻辑放到后台的Java Bean中，减少JSP中的脚本代码，有利于程序的可维护性与可重用性。<br>一、Java Bean<br>     a.无参构造器(也是默认的构造方法)<br>     b.标准的getter、setter方法<br>     c.如要进行网络传输(支持RMI)，需实现Serializable接口<br>二、如何在JSP中使用JavaBean？<br>   1.定义Java Bean<br>     形式：&lt;jsp：useBean id = “BeanName” class = “className”  sope=”范围域”&gt;<br>        id   ——声明bean对象的标识符，方便其他地方使用<br>        class——bean对象的类型，注意要使用完全限定名<br>        scope——java bean对象的共享范围(page、request、session、application)<br>           page:当前页面范围(范围最小，生命周期最短)<br>           request:同一个请求范围 (forward,include)<br>           session:同一个会话(30分钟不使用，会自动结束)<br>           application:同一个应用(范围最大，生命周期最长)  ServletContext<br>     例如：  SuperGirl &lt;jsp:useBean id=”girl” class=”com.tarena.vo.SuperGirl” scope=”session”/&gt;<br>     等价于：&lt;% SuperGirl girl=(SuperGirl)session.getAttribute(“girl”);<br>           if(girl==null){<br>              girl = new SuperGirl(); //对应 id 和 class<br>              session.setAttribute(“girl”,girl);  //对应 scope 的值<br>           } %&gt;<br>     可以用表达式获得bean的值：  &lt;%=girl.getName();%&gt;<br>   2.对JavaBean的属性赋值<br>     形式：&lt;jsp:setProperty name=”JavaBean对象名” property=”JavaBean属性名” value=”属性值”/&gt;<br>        例子：   &lt;jsp:setProperty name=”girl” property=”name” value=”Lily”/&gt;<br>        等价于： &lt;% girl.setName(“Lily”);%&gt;<br>     可以嵌套JSP表达式：<br>        &lt;jsp:setProperty name=”girl” property=”name”<br>         value=’&lt;%=request.getParameter(“name”)%&gt;’/&gt;<br>     Java Bean中的属性名与form中输入域的名字保持一致的话，可以使用通配符<em>，一次设置所有字段的值。<br>        &lt;jsp:setProperty name=”” property=”</em>“/&gt;<br>   3.获取JavaBean的属性值<br>     形式：&lt;jsp:getProperty name=”” property=””/&gt;<br>        name：标识具体的Bean对象，这与<a href="jsp:useBean" target="_blank" rel="noopener">jsp:useBean</a>标准动作中的id值相匹配<br>        property：标识属性中的标识符。</p>
-<p>JSP中的异常处理<br>一、try/catch/finally/throws/throw<br>    // 在局部代码里处理异常。<br>二、errorPage, isErrorPage<br>    // 在整个页面处理异常。<br>   1.errorPage<br>     形如： &lt;%@page errorPage=”error.jsp”%&gt;<br>     表示：需要错误处理的页面<br>   2.isErrorPage<br>     形如： &lt;%@page isErrorPage=”true”%&gt;<br>     指示：错误页面。其中，有一个隐式对象exception可用： &lt;%=exception%&gt;<br>          产生(隐含)内建对象exception,可通过它获得异常信息<br>          &lt;%=exception.getMessage() %&gt; //把异常信息打印出来<br>三、声明的方式处理异常<br>    // 在整个应用处理异常。(范围比前两种更大)<br>   1.配置： 在web.xml进行配置异常处理<br>      …… <error-page><br>           <exception-type>java.lang.ArithmeticException</exception-type><br>           <location>/MathError.jsp</location><br>         </error-page><br>         <error-page><br>           <error-code>404</error-code><br>           <location>/404.jsp</location><br>         </error-page>  ……<br>   2.复习：Java中的异常——有2种<br>     受查异常(Checked Exception)<br>     非受查异常(Unchecked Exception)  Java中的RuntimeException及其子类是不需要处理的(try/catch)<br>        因为所有的RuntimeException总是可以通过优化代码来避免，因此，这种异常被称为”Unchecked Exception”。<br>   3.思考：<br>     三种异常处理方式同时启动用，那个优先级高？ 作用域越小，优先级越高。<br>   注意：要使得页面自动跳转到错误页面，必须关闭浏览器的”显示友好HTTP错误信息”选项。<br>      public void _jspService(HttpServletRequest request, HttpServletResponse response)<br>        throws java.io.IOException, ServletException { /<em>只处理这两种兼容的异常</em>/ …… }</p>
-<p>安全的系统(企业级应用)：<br>   1.身份认证(合法用户)  –登录<br>   2.授权(静态)        –定义权限<br>   3.访问控制(动态)     –比较<br>   4.安全审计(日志)     –修复bug (只有敏感的部门需要)<br>JAAS实现安全<br>   JAAS——Java Authentication and Authorization Service<br>   (Java认证(Authentication)与授权(Authorization)服务)<br>   是Java EE规范之一，实现Java EE应用程序安全性的一个重要途径<br>   (要求：会使用，不必深入理解)<br>一、网络安全的4大要素<br>   认证——抵御假冒者(用户身份的合法性)<br>   授权——合法用户拥有的权限<br>   机密性——防止关键数据落入其他人手中<br>   数据完整性——抵御窃听者(篡改私有数据)<br>二、对于Http应用是如何进行认证的(Web端的认证方法)？<br>   四种安全认证： (http协议)basic, form, digest, certificate(证书) + ssl<br>   HttpMonitor监控受限资源的访问<br>三、容器是如何完成认证与授权的呢？<br>   图示(容器做了些什么事情)<br>   (容器的角度)<br>四、声明式安全以及分工<br>   Servlet的开发者<br>   应用的管理员<br>   部署人员</p>
-<p>五、实战<br>  1.定义新用户与角色<br>    在Tomcat服务器中定义：    %TOMCAT_HOME%/conf/tomcat-user.xml<br>     <?xml version='1.0' encoding='utf-8'?><br>     <tomcat-users><br>      <role rolename="manager"><br>        <role rolename="admin"><br>        <user username="maxwell" password="123" roles="admin,manager"><br>        <user username="lily" password="iloveyou" roles="manager"><br>     </user></user></role></role></tomcat-users><br>    为什么tomcat可以使用tomcat-users.xml作为它保存用户和角色信息的文件？原因是在server.xml中，有以下配置：<br>     <resource name="UserDatabase" auth="Container" type="org.apache.catalina.UserDatabase" description="User database that can be updated and saved" factory="org.apache.catalina.users.MemoryUserDatabaseFactory" pathname="conf/tomcat-users.xml"><br>     在DD中指定角色，则需在 web.xml 中配置：<br>     <security-role><br>        <description><br>        <role-name>admin</role-name><br>     </description></security-role><br>   2.声明安全性约束(指明受限资源)<br>     在DD中加入<security-constraint>元素，其中包含了：<br>       Web资源集合：<web-resource-collection><br>       其中包含了url资源以及http方法。<br>     授权约束：<auth-constraint><br>      <security-constraint><br>        <display-name>Constraint-all</display-name><br>        <web-resource-collection><br>           <web-resource-name>all-resources</web-resource-name><br>           <description><br>           <url-pattern>/admin/＊</url-pattern>    //被授权访问的目录和文件<br>           <url-pattern>/security/＊</url-pattern><br>           <http-method>GET</http-method><br>           <http-method>POST</http-method><br>        </description></web-resource-collection><br>        <auth-constraint><br>           <description><br>           <role-name>admin</role-name><br>        </description></auth-constraint><br>      </security-constraint></auth-constraint></web-resource-collection></security-constraint></resource></p>
-<pre><code>要注意的规则：
- 不要认为：资源本身受到约束；其实，是资源 + Http方法组合受到约束
- 如果配置中不指定&lt;http-method&gt;，说明所有的方法(Get,Post,Trace,Head,Delete,Put,Options等)都受约束；
- 当指定了具体的&lt;http-method&gt;，那么约束只针对该方法，其他的http方法都不在约束之内；
- &lt;auth-constraint&gt;定义的是哪些角色可以做出受约束的请求；而不是定义访问&lt;web-resource-collection&gt;
- 没有&lt;auth-constraint&gt;：任何角色都能访问；   空的&lt;auth-constraint /&gt;任何角色都不能访问；
- 对于不同的&lt;security-constraint&gt;，指定的url资源&lt;url-pattern&gt;在相同方法上定义了不同的&lt;auth-constrain&gt;，则存在合并规则。
+		<h3 id="JSP基础语法"><a href="#JSP基础语法" class="headerlink" title="JSP基础语法"></a>JSP基础语法</h3><h3 id="1、JSP模版元素"><a href="#1、JSP模版元素" class="headerlink" title="1、JSP模版元素"></a>1、JSP模版元素</h3><p>　　JSP页面中的HTML内容称之为JSP模版元素。<br>　　JSP模版元素定义了网页的基本骨架，即定义了页面的结构和外观。</p>
+<p>　　&lt;%@ page language=”java” import=”java.util.*” pageEncoding=”UTF-8”%&gt;</p>
+<h3 id="2、JSP表达式"><a href="#2、JSP表达式" class="headerlink" title="2、JSP表达式"></a>2、JSP表达式</h3><p>　　JSP脚本表达式（expression）用于将程序数据输出到客户端<br>    　　语法：<strong>&lt;%= 变量或表达式 %&gt;</strong><br>    　　举例：输出当前系统时间: <strong>&lt;%**</strong>=** <strong>new</strong> <strong>java.util.Date()</strong> <strong>%&gt;</strong></p>
+<p>　　JSP引擎在翻译脚本表达式时，会将程序数据转成字符串，然后在相应位置用out.print(…) 将数据输给客户端。<br>　　JSP脚本表达式中的变量或表达式后面<strong>不能有分号（;）</strong>。</p>
+<h3 id="3、JSP脚本片断"><a href="#3、JSP脚本片断" class="headerlink" title="3、JSP脚本片断"></a>3、JSP脚本片断</h3><p>　　JSP脚本片断用于在JSP页面中编写多行Java代码。语法：<br>　　　　<strong>&lt;%</strong><br>        　　　　<strong>多行java代码</strong><br>　　　　<strong>%&gt;</strong></p>
+<p>　　<strong>在&lt;% %&gt;中可以定义变量、编写语句，不能定义方法。</strong></p>
+<p>范例：在Scriptlet中定义变量、编写语句</p>
+<p><a href="javascript:void(0);" target="_blank" rel="noopener"><img src="https://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;%</span><br><span class="line">    int sum=0;//声明变量</span><br><span class="line"></span><br><span class="line">    /*编写语句*/</span><br><span class="line">    for (int i=1;i&lt;=100;i++)&#123;</span><br><span class="line">        sum+=i;</span><br><span class="line">    &#125;</span><br><span class="line">    out.println(&quot;&lt;h1&gt;Sum=&quot;+sum+&quot;&lt;/h1&gt;&quot;);</span><br><span class="line">%&gt;</span><br></pre></td></tr></table></figure>
 
-问题：为什么要设置&lt;auth-constraint /&gt;元素，使得任何角色的任何人都不能访问受限资源呢？其意义何在？
-   为了保护资源，只允许内部跳转去访问</code></pre><p>   3.选择认证方式<br>     如果是BASIC认证：则无需指定Form表单的action。<br>     <login-config><br>         <auth-method>BASIC</auth-method><br>         <realm-name>UserDatabaseRealm</realm-name><br>     </login-config><br>     如果是FORM认证：<br>     <login-config><br>       <auth-method>FORM</auth-method><br>       <form-login-config><br>          <form-login-page>/logon/loginForm.jsp</form-login-page><br>          <form-error-page>/logon/loginErrorForm.jsp</form-error-page><br>       </form-login-config><br>     </login-config></p>
-<pre><code>对于Form表单认证
- action的值，用户名、密码字段的名称都是固定的(规范) 
- &lt;form method=&quot;POST&quot; action=&quot;j_security_check&quot;&gt;      
-   &lt;input type=&quot;text&quot; name=&quot;j_username&quot;&gt;      
-   &lt;input type=&quot;password&quot; name=&quot;j_password&quot;&gt;      
-   &lt;input type=&quot;submit&quot; value=&quot;Submit&quot; name=&quot;B1&quot;&gt;
- &lt;/form&gt;
-标准的表单提交(固定不变)：
- action：j_security_check
- name:j_username
- password:j_password</code></pre>	
+<p><a href="javascript:void(0);" target="_blank" rel="noopener"><img src="https://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></p>
+<p>　　注意事项：</p>
+<ul>
+<li>JSP脚本片断中只能出现java代码，不能出现其它模板元素， JSP引擎在翻译JSP页面中，会将JSP脚本片断中的Java代码将被原封不动地放到Servlet的_jspService方法中。</li>
+<li>JSP脚本片断中的Java代码必须严格遵循Java语法，例如，每执行语句后面必须用分号（;）结束。</li>
+<li>在一个JSP页面中可以有多个脚本片断，在两个或多个脚本片断之间可以嵌入文本、HTML标记和其他JSP元素。</li>
+</ul>
+<p>​    举例：</p>
+<p><a href="javascript:void(0);" target="_blank" rel="noopener"><img src="https://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;%</span><br><span class="line">    int x = 10;</span><br><span class="line">    out.println(x);</span><br><span class="line">%&gt;</span><br><span class="line">&lt;p&gt;这是JSP页面文本&lt;/p&gt;</span><br><span class="line">&lt;%</span><br><span class="line">    int y = 20;</span><br><span class="line">    out.println(y);</span><br><span class="line">%&gt;</span><br></pre></td></tr></table></figure>
+
+<p><a href="javascript:void(0);" target="_blank" rel="noopener"><img src="https://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></p>
+<p>　　多个脚本片断中的代码可以相互访问，犹如将所有的代码放在一对&lt;%%&gt;之中的情况。如：out.println(x);<br>　　单个脚本片断中的Java语句可以是不完整的，但是，多个脚本片断组合后的结果必须是完整的Java语句，例如：</p>
+<p><a href="javascript:void(0);" target="_blank" rel="noopener"><img src="https://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;%</span><br><span class="line">    for (int i=1; i&lt;5; i++) </span><br><span class="line">    &#123;</span><br><span class="line">%&gt;</span><br><span class="line">    &lt;H1&gt;http://localhost:8080/JavaWeb_Jsp_Study_20140603/&lt;/H1&gt;</span><br><span class="line">&lt;%</span><br><span class="line">    &#125;</span><br><span class="line">%&gt;</span><br></pre></td></tr></table></figure>
+
+<p><a href="javascript:void(0);" target="_blank" rel="noopener"><img src="https://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></p>
+<h3 id="4、JSP声明"><a href="#4、JSP声明" class="headerlink" title="4、JSP声明"></a>4、JSP声明</h3><p>　　<strong>JSP页面中编写的所有代码，默认会翻译到servlet的service方法中， 而Jsp声明中的java代码被翻译到_jspService方法的外面。</strong>语法：<br>　　　　<strong>&lt;%！</strong><br>    　　　　<strong>java代码</strong><br>　　　　<strong>%&gt;</strong><br>　　所以，JSP声明<strong>可用于定义</strong>JSP页面转换成的Servlet程序的静<strong>态代码块、成员变量和方法</strong> 。<br>　　多个静态代码块、变量和函数可以定义在一个JSP声明中，也可以分别单独定义在多个JSP声明中。<br>　　JSP隐式对象的作用范围仅限于Servlet的_jspService方法，所以在JSP声明中不能使用这些隐式对象。</p>
+<p>　　JSP声明案例：</p>
+<p><a href="javascript:void(0);" target="_blank" rel="noopener"><img src="https://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">&lt;%!</span><br><span class="line">static &#123; </span><br><span class="line">    System.out.println(&quot;loading Servlet!&quot;); </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">private int globalVar = 0;</span><br><span class="line"></span><br><span class="line">public void jspInit()&#123;</span><br><span class="line">    System.out.println(&quot;initializing jsp!&quot;);</span><br><span class="line">&#125;</span><br><span class="line">%&gt;</span><br><span class="line"></span><br><span class="line">&lt;%!</span><br><span class="line">public void jspDestroy()&#123;</span><br><span class="line">    System.out.println(&quot;destroying jsp!&quot;);</span><br><span class="line">&#125;</span><br><span class="line">%&gt;</span><br></pre></td></tr></table></figure>
+
+<p><a href="javascript:void(0);" target="_blank" rel="noopener"><img src="https://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></p>
+<h3 id="5、JSP注释"><a href="#5、JSP注释" class="headerlink" title="5、JSP注释"></a>5、JSP注释</h3><p>在JSP中，注释有两大类：<strong>显式注释和隐式注释</strong></p>
+<p><strong>这三种注释的区别：</strong></p>
+<p><a href="javascript:void(0);" target="_blank" rel="noopener"><img src="https://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;!--显示注释，这个注释可以看见--&gt;</span><br><span class="line"></span><br><span class="line">&lt;%</span><br><span class="line">    //JAVA中的单行注释</span><br><span class="line"></span><br><span class="line">    /*</span><br><span class="line">        JAVA中的多行注释</span><br><span class="line">    */</span><br><span class="line">%&gt;</span><br><span class="line"></span><br><span class="line">&lt;%--JSP自己的注释--%&gt;</span><br></pre></td></tr></table></figure>
+
+	
 	</div>
 	
 	<div id="current-post-cover" data-scr="/img/cart_cover.jpg"></div>
@@ -372,12 +386,8 @@
 	<span>
 		<a href="javascript: window.scrollTo(0, 0);">To Top</a>
 		
-			<a href="/2019/11/24/jsp隐含对象/" title="jsp隐含对象" rel="prev">
-				&laquo;Pre post
-			</a>
 		
-		
-			<a href="/2019/11/20/jsp介绍及使用/" title="jsp介绍及使用" rel="next">
+			<a href="/2019/11/24/MVC模式/" title="MVC模式" rel="next">
 				Next post&raquo;
 			</a>
 			
@@ -395,30 +405,6 @@
 <div class="relate-post">
 	
 		<ul>
-			
-					<li>
-						<div class="relate-post-text">
-							<a class="relate-post-title" href="/2019/11/24/jsp基本语法/" title="jsp基本语法">
-								jsp基本语法			
-							</a>
-							<p class="relate-post-date">
-								<i class="fa fa-calendar"></i>
-								十一月 24日, 2019				
-							</p>
-							<p class="relate-post-content">
-								JSP基础语法1、JSP模版元素　　JSP页面中的HTML内容称之为JSP模版元素。　　JSP模版元素定义了网页的基本骨架，即定义了页面的结构和外观。
-　　&lt;%@ page language=”java” import=”jav...
-							</p>
-						</div>
-
-						<div class="relate-post-cover">
-							<a href="/2019/11/24/jsp基本语法/" title="jsp基本语法">				
-								
-								<img class="lazy" src="/img/placeholder.jpg" data-src="/img/cart_cover.jpg" alt="jsp基本语法"/>
-							</a>
-						</div>
-					</li>											
-			
 			
 					<li>
 						<div class="relate-post-text">
@@ -463,6 +449,29 @@ JspWriter              out    ...
 							<a href="/2019/11/24/jsp隐含对象/" title="jsp隐含对象">				
 								
 								<img class="lazy" src="/img/placeholder.jpg" data-src="/img/cart_cover.jpg" alt="jsp隐含对象"/>
+							</a>
+						</div>
+					</li>											
+			
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2019/11/24/Java-Bean/" title="Java Bean">
+								Java Bean			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								十一月 24日, 2019				
+							</p>
+							<p class="relate-post-content">
+								Java Bean： 组件、构件的规范(属性，提供get/set方法；还可包含其他方法)JSP调用JavaBean  通过引入JavaBean，JSP才能较好的把页面展示与业务逻辑分离。  其中，业务逻辑放到后台的Java Bean中...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="/2019/11/24/Java-Bean/" title="Java Bean">				
+								
+								<img class="lazy" src="/img/placeholder.jpg" data-src="/img/cart_cover.jpg" alt="Java Bean"/>
 							</a>
 						</div>
 					</li>											
